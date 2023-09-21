@@ -54,19 +54,19 @@ que se detecte la introducción de valores iguales.
 
 ### Pseudocódigo
 
-- Inicio
+- __Inicio__
 - Inicializar las variables A, B y C
-- Leer los tres valores
+- __Leer__ los tres valores
 - Almacenar en las variables A, B y C
-- Si A > B y A > C Entonces
-- Escribir A “Es el mayor”
-- Sino
-- Si B > A y B > C Entonces
-- Escribir B “Es el mayor”
-- Sino
-- Escribir C “Es el mayor”
-- Fin_Si
-- Fin_Si
-- Fin
+- __Si__ A > B y A > C __Entonces__
+- __Escribir__ A “Es el mayor”
+- ___Sino__
+- __Si__ B > A y B > C __Entonces__
+- __Escribir__ B “Es el mayor”
+- __Sino__
+- __Escribir__ C “Es el mayor”
+- __Fin_Si__
+- __Fin_Si__
+- __Fin__
 
 </div>
