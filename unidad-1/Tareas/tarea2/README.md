@@ -3,6 +3,7 @@
 # Indice
 
 - [Tarea 2](#tarea2)
+- [Tarea 3](#tarea3)
 
 # Tarea 2 <a name="tarea2"></a>
 
