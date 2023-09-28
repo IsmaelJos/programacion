@@ -1,8 +1,8 @@
 /**
  * @author IsmaelJos
- * ejercicio numero 3
+ * ejercicio numero 2
  */
-public class Ejercicio1 {
+public class Ejercicio2 {
 
     /**
      * Descripcion del algoritmo
