@@ -18,5 +18,17 @@ public class Ejercicio3 {
             sumatoria+=i;
         }
         System.out.println("Suma en bucle for: "+sumatoria);
+        
+        int sumatoria2 = 0;
+        int suma = 0;
+        
+        while ( suma < 10){
+            
+            suma + 1;
+            sumatoria2 += suma;
+
+
+        }
+        System.out.println("Suma en bucle while: "+sumatoria2);
     }
 }
