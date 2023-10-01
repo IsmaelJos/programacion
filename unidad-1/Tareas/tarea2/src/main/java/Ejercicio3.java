@@ -24,7 +24,7 @@ public class Ejercicio3 {
         
         while ( suma < 10){
             
-            suma + 1;
+            suma += 1;
             sumatoria2 += suma;
 
 
