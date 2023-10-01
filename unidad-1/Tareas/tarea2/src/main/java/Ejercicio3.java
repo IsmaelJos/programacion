@@ -23,11 +23,8 @@ public class Ejercicio3 {
         int suma = 0;
         
         while ( suma < 10){
-            
             suma += 1;
             sumatoria2 += suma;
-
-
         }
         System.out.println("Suma en bucle while: "+sumatoria2);
     }

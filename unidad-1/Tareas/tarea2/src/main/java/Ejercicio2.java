@@ -53,7 +53,7 @@ public class Ejercicio2 {
                 System.out.println(valorB+" es el menor");
             }
         };
-/* */
+
 
     }
 }
