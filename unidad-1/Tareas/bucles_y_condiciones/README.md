@@ -10,7 +10,7 @@ Desarrolle un algoritmo que permita calcular Promedio de Notas; finaliza cuando 
 ## Diagrama de flujos
 
 <div align="center">
-    <img src="images/diagrama-flujo8.png"/> 
+    <img src="images/Bucles_Y_Condiciones_1.png"/> 
 </div>
 
 ## Pseudocódigo
@@ -44,7 +44,7 @@ El ejercicio consiste en escribir un programa que encuentre e imprima todos los 
 ## Diagrama de flujos
 
 <div align="center">
-    <img src="images/Bucles y Condiciones 2.png"/> 
+    <img src="images/Bucles_Y_Condiciones_2.png"/> 
 </div>
 
 ## Pseudocódigo
