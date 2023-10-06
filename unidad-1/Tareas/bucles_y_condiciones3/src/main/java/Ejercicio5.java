@@ -3,7 +3,7 @@ import java.util.Scanner;
 /**
  * @author IsmaelJos
  */
-public class Ejercicio3 {
+public class Ejercicio5 {
 
     static Scanner scanner=new Scanner(System.in);
 
@@ -18,21 +18,17 @@ public class Ejercicio3 {
         int fibo1 = 0;
         int fibo2 = 1;
         int fibo3 = 0;
+        System.out.println( "pocicion 1 = "+fibo1);
 
-        for (int i = 0; i <= pos - 2; i++) {
+        for (int i = 2; i <= pos; i++) {
 
             fibo3 = fibo2 + fibo1;
+            System.out.println("pocicion " + i + " = " + fibo3);
             if (fibo1 < fibo2) {
                 fibo1 = fibo3;
-            }else {
+            } else {
                 fibo2 = fibo3;
             }
-
         }
-
-
-
-
-        System.out.println(fibo3);
     }
 }

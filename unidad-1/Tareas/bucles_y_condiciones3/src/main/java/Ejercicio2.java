@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 /**
  * @author IsmaelJos
- * ejercicio Bucles y Condiciones 2
+ * ejercicio 2
  */
 public class Ejercicio2 {
 
