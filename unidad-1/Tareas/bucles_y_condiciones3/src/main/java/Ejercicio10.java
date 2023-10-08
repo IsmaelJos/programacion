@@ -23,6 +23,6 @@ public class Ejercicio10 {
                 suma+=contador;
             }
         }while(contador!=ultimo);
-        System.out.println("la suma es de "+suma);
+        System.out.println("la suma es "+suma);
     }
 }

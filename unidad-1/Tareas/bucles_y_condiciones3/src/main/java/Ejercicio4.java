@@ -24,8 +24,6 @@ public class Ejercicio4 {
             resultado=resultado*10+resto;
             contador=contador/10;
 
-
-
         }
         if (resultado==n){
             System.out.println(n+" es un palindromo");

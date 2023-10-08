@@ -15,13 +15,13 @@ public class Ejercicio1 {
     public static void main(String[] args) {
 
         int numero = 1;
-        int NPorLinea = 1;
+        int nPorLinea = 1;
         for (int i = 0; i < 4; i++) {
-            for (int j = 0; j < NPorLinea; j++) {
+            for (int j = 0; j < nPorLinea; j++) {
                 System.out.print(numero+" ");
                 numero++;
             }
-            NPorLinea++;
+            nPorLinea++;
             System.out.println(" ");
         }
 
