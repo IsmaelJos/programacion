@@ -19,19 +19,15 @@ public class Ejercicio8 {
         int ultimo = scanner.nextInt();
         while (primero < ultimo) {
             int suma = 0;
-            int n;
-            n = primero;
-            for (int i = 1; i < n; i++) {
-                if (n % i == 0) {
+            int numero = primero;
+            for (int i = 1; i < numero; i++) {
+                if (numero % i == 0) {
                     suma = suma + i;
                 }
             }
-            if (suma == n) {
-                System.out.println("Perfecto");
-            } else {
-                System.out.println("No es perfecto");
-
-            }
+            if (suma == numero) {
+                System.out.println(primero+" es Perfecto");
+            } 
             primero++;
 
         }
