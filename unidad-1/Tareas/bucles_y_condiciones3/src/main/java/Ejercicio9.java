@@ -15,9 +15,9 @@ public class Ejercicio9 {
 
         System.out.println("Añada el numero");
         int tabla = scanner.nextInt();
-        for (int i = 0; i <= 10; i++) {
-            int valor = i * tabla;
-            System.out.println(i+" * "+tabla+" = "+valor);
+        for (int posicion = 0; posicion <= 10; posicion++) {
+            int valor = posicion * tabla;
+            System.out.println(posicion+" * "+tabla+" = "+valor);
         }
 
     }
