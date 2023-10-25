@@ -2,8 +2,8 @@ package ies.puerto;
 
 public class Ejercicio2 {
 
-    public String determinarNumero(int num){
-        return determinarPosNeg(num) + determinarParImpar(num);
+    public String determinarNumero(double num){
+        return determinarPosNeg(num) +" y "+ determinarParImpar(num);
     }
 
     /**
@@ -11,9 +11,11 @@ public class Ejercicio2 {
      * @param num
      * @return resultado que puede ser "Positivo" o "Negativo"
      */
-    public String determinarPosNeg(int num) {
-        String resultado = "";
-
+    public String determinarPosNeg(double num) {
+        String resultado = "Negativo";
+        if (num >= 0 ){
+            resultado = "Positivo";
+        }
         return resultado;
     }
 
@@ -22,9 +24,11 @@ public class Ejercicio2 {
      * @param num
      * @return resultado que puede ser "Par" o "Impar"
      */
-    public String determinarParImpar(int num){
-        String resultado ="";
-
+    public String determinarParImpar(double num){
+        String resultado = "Impar";
+        if (num % 2 == 0 ){
+            resultado = "Par";
+        }
         return resultado;
     }
 }

@@ -9,7 +9,7 @@ public class Ejercicio2Test {
     @Test
     public void determinarNumeroOkTest(){
         String resultado = ejercicio2.determinarNumero(12);
-        Assertions.assertEquals("",resultado,"No se ha obtenido el resultado esperado");
+        Assertions.assertEquals("Positivo y Par",resultado,"No se ha obtenido el resultado esperado");
 
     }
 }
