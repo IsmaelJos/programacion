@@ -9,9 +9,9 @@ public class Ejercicio9Test {
     public void joinArrayTest(){
         int[] array1 = {1,2,3};
         int[] array2 = {4,5,6};
-        int[][] resultCorrecto = {{1,2,3},{4,5,6}};
-        int[][] resultado = ejercicio9.joinArray(array1,array2);
-        Assertions.assertEquals(resultCorrecto,resultado,"No se ha obtenido el resultado esperado");
+        int[] resultCorrecto = {1,2,3,4,5,6};
+        int[] resultado = ejercicio9.joinArray(array1,array2);
+        Assertions.assertArrayEquals(resultCorrecto,resultado,"No se ha obtenido el resultado esperado");
 
     }
 }

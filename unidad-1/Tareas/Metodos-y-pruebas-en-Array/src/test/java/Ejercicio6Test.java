@@ -12,7 +12,7 @@ public class Ejercicio6Test {
         int[][] array = {{1,2,3},{4,5,6},{7,8,9}};
         int[][] arrayFin = {{1,4,7},{2,5,8},{3,6,9}};
         int[][] resultado = ejercicio6.transposicion(array);
-        Assertions.assertEquals(arrayFin,resultado,"No se ha obtenido el resultado esperado");
+        Assertions.assertArrayEquals(arrayFin,resultado,"No se ha obtenido el resultado esperado");
 
     }
 
