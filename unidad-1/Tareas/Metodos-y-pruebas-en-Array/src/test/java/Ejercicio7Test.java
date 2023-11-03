@@ -9,8 +9,9 @@ public class Ejercicio7Test {
     @Test
     public void ordenarArrayAscTest(){
         int[] array = {3,1,2};
-        String resultado = ejercicio7.ordenarArrayAsc(array);
-        Assertions.assertEquals("1,2,3,",resultado,"No se ha obtenido el resultado esperado");
+        int[] arrayCorrecto={1,2,3};
+        int[] resultado = ejercicio7.ordenarArrayAsc(array);
+        Assertions.assertArrayEquals(arrayCorrecto,resultado,"No se ha obtenido el resultado esperado");
 
     }
 }
