@@ -15,10 +15,11 @@ public class Estudiante {
         this.nombre = nombre;
         this.edad = edad;
     }
-    public Estudiante(String nombre,int edad, String carrera){
+    public Estudiante(String nombre,int edad, String carrera, int promedio){
         this.nombre = nombre;
         this.edad = edad;
         this.carrera = carrera;
+        this.promedio = promedio;
     }
     public String imprimir(){
         return "Nombre: "+nombre+" Edad: "+edad+" Nombre de la carrera: "+carrera;
