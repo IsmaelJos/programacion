@@ -4,11 +4,13 @@ public class Continue3 {
      * usando continue para omitir los números impares.
      */
     public void numImpar1A10(){
+        int suma = 0;
         for (int i = 1; i <= 10; i++) {
-            if ((i%2)==1){
+            if ((i%2!=0)){
                 continue;
             }
-            System.out.println(i);
+            suma+=i;
         }
+        System.out.println(suma);
     }
 }

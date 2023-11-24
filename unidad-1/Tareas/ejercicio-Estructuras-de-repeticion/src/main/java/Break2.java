@@ -4,7 +4,7 @@ public class Break2 {
      * número primo mayor que 100 , utilizando break.
      */
     public void primoMayor100(){
-        for (int i = 100; i < 0; i++) {
+        for (int i = 100; i > 0; i++) {
             if (primo(i)){
                 System.out.println(i);
                 break;
@@ -13,7 +13,7 @@ public class Break2 {
     }
     public boolean primo(int num){
         for (int i = 2; i < num ; i++) {
-            if (num%1==0){
+            if (num%i==0){
                 return false;
             }
         }
