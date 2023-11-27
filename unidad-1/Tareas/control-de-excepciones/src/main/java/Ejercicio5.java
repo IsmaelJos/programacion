@@ -6,24 +6,20 @@ import java.util.Scanner;
  */
 public class Ejercicio5 {
     public static void main(String[] args) {
-        String operacion = pedirOperacion();
-        int resultado = resultOperacion(operacion);
-        System.out.println(resultado);
+        int operacion = pedirOperacion();
+        System.out.println(operacion);
     }
-    public static String pedirOperacion(){
+    public static int pedirOperacion(){
         Scanner scanner = new Scanner(System.in);
         System.out.println("Añade una operacion");
-        String operacion = scanner.nextLine();
+        int operacion = 0;
+        try{
+            operacion = scanner.nextInt();
+        }catch (ArithmeticException n){
+            System.out.println("Ha habido una ArithmeticException");
+        }
+
         return operacion;
     }
-    public static int resultOperacion(String operacion){
-        int num = 0;
-        try{
 
-        }
-        catch (ArithmeticException e){
-            System.out.println("Se ha encontrado un ArithmeticException");
-        }
-        return num;
-    }
 }

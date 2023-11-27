@@ -1,7 +1,10 @@
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.Date;
 import java.util.Scanner;
+import java.util.SimpleTimeZone;
 
 /**
  * Escribe un programa que solicite al usuario ingresar una fecha en formato incorrecto y luego
@@ -11,27 +14,23 @@ import java.util.Scanner;
 public class Ejercicio6 {
     public static void main(String[] args) {
         String fechaStr = pedirFecha();
-        LocalDate fecha = fechaDate(fechaStr);
+        Date fecha = fechaDate(fechaStr);
         System.out.println(fecha);
     }
     public static String pedirFecha(){
         Scanner scanner = new Scanner(System.in);
         System.out.println("Introduce una fecha");
-        String Fecha = scanner.nextLine();
-        return Fecha;
+        String fecha = scanner.nextLine();
+        return fecha;
     }
 
-    public static LocalDate fechaDate(String fecha) {
-        LocalDate localDate = null;
-        /*
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d/MM/yyyy");
+    public static Date fechaDate(String fecha) {
+        SimpleDateFormat localDate = new SimpleDateFormat("dd/mm/yyyy");
         try {
-            localDate = LocalDate.parse(fecha, formatter);
+            return localDate.parse(fecha);
         }catch (ParseException e){
-            System.out.println("Se ha encontrado un error ParseException, la fecha no esta puesta correctamente");
+            System.out.println("Ha ocurrido un ParseException");
         }
-
-         */
-        return localDate;
+        return null;
     }
 }

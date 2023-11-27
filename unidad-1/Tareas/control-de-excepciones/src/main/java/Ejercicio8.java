@@ -5,7 +5,7 @@ import java.util.Scanner;
  * Escribe un programa que solicite al usuario dos números y realice la división. Maneja la excepción
  * InputMismatchException si el usuario ingresa algo que no es un número.
  */
-public class ejercicio8 {
+public class Ejercicio8 {
     public static void main(String[] args) {
         int num1 = pedirNum();
         int num2 = pedirNum();
@@ -24,7 +24,7 @@ public class ejercicio8 {
         return numero;
     }
     public static int divNum(int num1, int num2){
-        int resultado = resultado = num1 / num2;
+        int resultado = num1 / num2;
         return resultado;
     }
 }
