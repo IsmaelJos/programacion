@@ -7,13 +7,19 @@ import java.util.Scanner;
  */
 public class Ejercicio8 {
     public static void main(String[] args) {
-        int num1 = pedirNum();
-        int num2 = pedirNum();
-        int resultado = divNum(num1,num2);
+        int divisor = pedirNumDivisor();
+        int dividendo = pedirNumDividendo();
+        int resultado = divNum(divisor,dividendo);
         System.out.println(resultado);
     }
-    public static int pedirNum(){
-        System.out.println("Introduce un numero");
+    public static int pedirNumDivisor(){
+        System.out.println("Introduce un numero para ser Divisor");
+        Scanner scanner = new Scanner(System.in);
+        int numero = scanner.nextInt();
+        return numero;
+    }
+    public static int pedirNumDividendo(){
+        System.out.println("Introduce un numero para ser Dividendo");
         Scanner scanner = new Scanner(System.in);
         int numero = 0;
         try {
@@ -23,8 +29,8 @@ public class Ejercicio8 {
         }
         return numero;
     }
-    public static int divNum(int num1, int num2){
-        int resultado = num1 / num2;
+    public static int divNum(int divisor, int dividendo){
+        int resultado = divisor / dividendo;
         return resultado;
     }
 }
