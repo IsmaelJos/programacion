@@ -8,9 +8,9 @@ public class Ejercicio10 {
     public static void main(String[] args) {
         Calendar calendar = Calendar.getInstance();
         int diaDeLaSemana = calendar.get(Calendar.DAY_OF_WEEK);
-        if (diaDeLaSemana==6){
+        if (diaDeLaSemana==7){
             System.out.println("es sabado");
-        } else if (diaDeLaSemana==7) {
+        } else if (diaDeLaSemana==1) {
             System.out.println("es domingo");
         }
     }
