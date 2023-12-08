@@ -1,24 +1,26 @@
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-//https://regexr.com/
-public class Ejercicio4 {
+
+public class Ejercicio6 {
     public static void main(String[] args) {
         String texto = pedirTexto();
-        String regex = "([a-z]*[A-Z][a-z]+)";
+        String regex = "(\\b4\\d{3}-\\d{4}-\\d{4}-\\d{4}\\b)|(\\b4\\d{3} \\d{4} \\d{4} \\d{4}\\b)|(\\b4\\d{15}\\b)";
 
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(texto);
-        int contador = 0;
-        while (matcher.find()) {
-            contador++;
+
+        if (matcher.matches()) {
+            System.out.println("formato correcto con visa "+ texto);
+        } else {
+            System.out.println("formato incorrecto con visa "+ texto);
         }
-        System.out.println("Se han encontrado "+contador+" palabras concatenadas");
     }
     public static String pedirTexto(){
-        System.out.println("Añada un texto");
+        System.out.println("Añada el numero de visa");
         Scanner scanner = new Scanner(System.in);
         String texto = scanner.nextLine();
         return texto;
     }
 }
+// 4005 5500 0000 0001
