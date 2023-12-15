@@ -9,7 +9,7 @@ public class CorreoElectronico {
         this.direccionCorreoElectronico = direccionCorreoElectronico;
     }
     public void validar() throws CorreoInvalidoException {
-        if(direccionCorreoElectronico.matches("^[A-Za-z0-9\\-_]+@[A-Za-z0-9\\-_]+.[a-z]{2}[a-z]*")){
+        if(direccionCorreoElectronico.matches("^[A-Za-z0-9\\-_]+@[A-Za-z0-9\\-_]+.[a-z]{2}[a-z]*$")){
             this.valido = true;
             System.out.println("Correo validado correctamente");
         }else{

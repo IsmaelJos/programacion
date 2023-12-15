@@ -9,7 +9,7 @@ import java.util.Date;
 public class Ejercicio2 {
     public static void main(String[] args) {
         Date fecha = new Date();
-        DateFormat formatoFecha = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+        DateFormat formatoFecha = new SimpleDateFormat("dd-MM-yyyy");
         String fechaFormateada = formatoFecha.format(fecha);
         System.out.println(fechaFormateada);
     }
