@@ -5,10 +5,7 @@ public class Ejercicio1 {
      * Crea un triangulo equilatero con el mismo numero de filas que se ha introducido
      * @param numFilas numero de filas que tendra el triangulo
      */
-    public static void main(String[] args) {
-        trianguloEquilatero(4);
-    }
-    public static void trianguloEquilatero(int numFilas) {
+    public void trianguloEquilatero(int numFilas) {
         if (numFilas <= 0) {
             System.out.println("El Numero introducido no puede ser negativo o 0");
         } else {

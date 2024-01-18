@@ -5,15 +5,14 @@ import java.util.regex.Pattern;
 public class Ejercicio4 {
     public static void main(String[] args) {
         String texto = pedirTexto();
-        String regex = "([a-z]*[A-Z][a-z]+)";
+        String regex = "([A-Z][a-z]+)";
 
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(texto);
-        int contador = 0;
+
         while (matcher.find()) {
-            contador++;
+            System.out.println("numero encontrado: " + matcher.group());
         }
-        System.out.println("Se han encontrado "+contador+" palabras concatenadas");
     }
     public static String pedirTexto(){
         System.out.println("Añada un texto");
