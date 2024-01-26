@@ -3,7 +3,7 @@ package ies.puerto.ej1;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ejercicio1 {
+public class Ejercicio1 {
     static List<Integer> listaNumeroPares;
     static List<Integer> listaNumeroInpares;
 

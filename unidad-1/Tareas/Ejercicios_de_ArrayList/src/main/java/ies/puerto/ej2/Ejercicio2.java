@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
 
-public class ejercicio2 {
+public class Ejercicio2 {
     static List<String> listaCadenas;
 
     public static void main(String[] args) {
