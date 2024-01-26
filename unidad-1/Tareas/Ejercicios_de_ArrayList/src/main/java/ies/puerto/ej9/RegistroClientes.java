@@ -5,32 +5,38 @@ import java.util.List;
 
 public class RegistroClientes {
 
-    private String fecha;
     private List<Cliente> clientes;
 
-    public RegistroClientes(String fecha) {
-        this.fecha = fecha;
-        this.clientes = new ArrayList<>();
+    public RegistroClientes(){
+        clientes = new ArrayList<>();
+    }
+    public RegistroClientes(List<Cliente> clientes){
+        clientes = new ArrayList<>();
     }
 
-    public RegistroClientes(String fecha, List<Cliente> clientes) {
-        this.fecha = fecha;
-        this.clientes = clientes;
-    }
+    public Cliente buscarClientes(Cliente cliente){
 
-    public String getFecha() {
-        return fecha;
-    }
+        for (Cliente clienteLista: clientes){
+            if (cliente.equals(clienteLista)){
+                return clienteLista;
+            }
+        }
 
-    public void setFecha(String fecha) {
-        this.fecha = fecha;
+        return null;
     }
-
-    public List<Cliente> getClientes() {
-        return clientes;
+    public void transaccion(int numCliente, int cantidad){
+        Cliente clienteActualizar = new Cliente(numCliente);
+        if (!clientes.contains(clienteActualizar)){
+            return;
+        }
+        int pocicionCliente = clientes.indexOf(clienteActualizar);
+        clienteActualizar = buscarClientes(clienteActualizar);
+        clienteActualizar.setSaldo(cantidad);
+        clientes.set(pocicionCliente,clienteActualizar);
     }
-
-    public void setClientes(List<Cliente> clientes) {
-        this.clientes = clientes;
+    public void addCliente(Cliente cliente){
+        if (clientes.contains(cliente)){
+            addCliente(cliente);
+        }
     }
 }

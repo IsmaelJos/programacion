@@ -19,6 +19,10 @@ public class Cliente {
     public Cliente() {
     }
 
+    public Cliente(int numero) {
+        this.numero = numero;
+    }
+
     public Cliente(String nombre, int numero, int saldo) {
         this.nombre = nombre;
         this.numero = numero;
@@ -48,6 +52,9 @@ public class Cliente {
     public void setSaldo(int saldo) {
         this.saldo = saldo;
     }
+    public void actualizarSaldo(int cantidad){
+        this.saldo += cantidad;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -60,5 +67,13 @@ public class Cliente {
     @Override
     public int hashCode() {
         return Objects.hash(numero);
+    }
+
+    @Override
+    public String toString() {
+        return "Cliente:" +
+                "nombre='" + nombre + '\'' +
+                ", numero=" + numero +
+                ", saldo=" + saldo ;
     }
 }
