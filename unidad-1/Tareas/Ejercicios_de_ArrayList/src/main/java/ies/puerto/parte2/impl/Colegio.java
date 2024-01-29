@@ -1,6 +1,8 @@
 package ies.puerto.parte2.impl;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class Colegio {
     private String nombre;
@@ -9,6 +11,7 @@ public class Colegio {
     private List<Aula> aulas;
 
     public Colegio() {
+        aulas = new ArrayList<>();
     }
 
     public Colegio(String nombre, String direccion, String ubicacion, List<Aula> aulas) {
@@ -48,5 +51,18 @@ public class Colegio {
 
     public void setAulas(List<Aula> aulas) {
         this.aulas = aulas;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Colegio colegio = (Colegio) o;
+        return Objects.equals(direccion, colegio.direccion);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(direccion);
     }
 }
