@@ -4,11 +4,18 @@ import es.ies.puerto.vehiculos.Coche;
 import es.ies.puerto.vehiculos.Motocicleta;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 
 public class Concesionario {
-    HashSet<Coche> coches;
-    ArrayList<Motocicleta> motocicletas;
+    private HashSet<Coche> coches;
+    private ArrayList<Motocicleta> motocicletas;
+    private HashMap<String, Camion> camiones;
+    private HashMap<String, Bicicleta> bicicletas;
+
+    /**
+     * MOTOCICLETA
+     */
 
     public boolean addMotocicleta(Motocicleta motocicleta){
         if(motocicletas.contains(motocicleta)){
@@ -47,6 +54,11 @@ public class Concesionario {
         velocidadMedia = velocidadMedia/motocicletas.size();
         return velocidadMedia;
     }
+
+    /**
+     * COCHE
+     */
+
     public boolean addCoche(Coche coche){
         if(coches.contains(coche)){
             return false;
@@ -85,6 +97,25 @@ public class Concesionario {
         velocidadMedia = velocidadMedia/coches.size();
         return velocidadMedia;
     }
+
+    /**
+     * CAMION
+     */
+
+    public boolean obtenerCamion(Camion camion){
+        if(camiones.isEmpty()){
+            return false;
+        }
+        if(!camiones.containsKey(camion.getMatricula())){
+            return false;
+        }
+        return true;
+    }
+
+    /**
+     * BICICLETA
+     */
+
     public float velocidadMediaVehiculos(){
         return (velocidadMediaCoches()+velocidadMediaMotocicletas())/2;
     }
@@ -105,8 +136,31 @@ public class Concesionario {
         this.motocicletas = motocicletas;
     }
 
+    public HashMap<String, Camion> getCamiones() {
+        return camiones;
+    }
+
+    public void setCamiones(HashMap<String, Camion> camiones) {
+        this.camiones = camiones;
+    }
+
+    public HashMap<String, Bicicleta> getBicicletas() {
+        return bicicletas;
+    }
+
+    public void setBicicletas(HashMap<String, Bicicleta> bicicletas) {
+        this.bicicletas = bicicletas;
+    }
+
     public Concesionario(HashSet<Coche> coches, ArrayList<Motocicleta> motocicletas) {
         this.coches = coches;
         this.motocicletas = motocicletas;
+    }
+
+    public Concesionario(HashSet<Coche> coches, ArrayList<Motocicleta> motocicletas, HashMap<String, Camion> camiones, HashMap<String, Bicicleta> bicicletas) {
+        this.coches = coches;
+        this.motocicletas = motocicletas;
+        this.camiones = camiones;
+        this.bicicletas = bicicletas;
     }
 }

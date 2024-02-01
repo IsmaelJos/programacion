@@ -5,7 +5,7 @@ import es.ies.puerto.abstractas.Vehiculo;
 public class Motocicleta extends Vehiculo {
     @Override
     public int velocidadMaxima() {
-        return 210;
+        return 120;
     }
 
     public Motocicleta(String marca, String modelo, String matricula, int velocidad) {
