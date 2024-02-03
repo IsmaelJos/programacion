@@ -102,7 +102,9 @@ public class Concesionario {
      * CAMION
      */
 
-    public boolean obtenerCamion(Camion camion){
+
+
+    public boolean existeCamion(Camion camion){
         if(camiones.isEmpty()){
             return false;
         }
@@ -112,12 +114,79 @@ public class Concesionario {
         return true;
     }
 
+    public Camion obtenerCamion(String matricula){
+        return camiones.get(matricula);
+    }
+
+    public boolean addCamion(Camion camion){
+        if (!existeCamion(camion)){
+            camiones.put(camion.getMatricula(),camion);
+            return true;
+        }
+        return false;
+    }
+
+    public boolean removeCamion(Camion camion){
+        if (existeCamion(camion)){
+            camiones.remove(camion.getMatricula());
+            return true;
+        }
+        return false;
+    }
+    public float velocidadMediaCamiones(){
+        float velocidadMedia = 0f;
+        for (Camion camion : camiones){
+            velocidadMedia += camion.getVelocidad();
+        }
+        velocidadMedia = velocidadMedia/camiones.size();
+        return velocidadMedia;
+    }
+
     /**
      * BICICLETA
      */
+    public boolean existeBicicleta(Bicicleta bicicleta){
+        if(bicicletas.isEmpty()){
+            return false;
+        }
+        if(!bicicletas.containsKey(bicicleta.getMatricula())){
+            return false;
+        }
+        return true;
+    }
+
+    public Bicicleta obtenerBicicleta(String matricula){
+        return bicicletas.get(matricula);
+    }
+
+    public boolean addBicicleta(Bicicleta bicicleta){
+        if (!existeBicicleta(bicicleta)){
+            bicicletas.put(bicicleta.getMatricula(),bicicleta);
+        }
+        return false;
+    }
+    public boolean removeBicicleta(Bicicleta bicicleta){
+        if (existeBicicleta(bicicleta)){
+            bicicletas.remove(bicicleta.getMatricula());
+        }
+        return false;
+    }
+    public float velocidadMediaBicicletas(){
+        float velocidadMedia = 0f;
+        for (Bicicleta bicicleta : bicicletas){
+            velocidadMedia += bicicleta.getVelocidad();
+        }
+        velocidadMedia = velocidadMedia/bicicletas.size();
+        return velocidadMedia;
+    }
+
 
     public float velocidadMediaVehiculos(){
-        return (velocidadMediaCoches()+velocidadMediaMotocicletas())/2;
+        return (velocidadMediaCoches()+
+                velocidadMediaMotocicletas()+
+                velocidadMediaCamiones()+
+                velocidadMediaBicicletas())
+                /4;
     }
 
     public HashSet<Coche> getCoches() {
@@ -155,6 +224,15 @@ public class Concesionario {
     public Concesionario(HashSet<Coche> coches, ArrayList<Motocicleta> motocicletas) {
         this.coches = coches;
         this.motocicletas = motocicletas;
+        this.camiones = new HashMap<>();
+        this.bicicletas = new HashMap<>();
+    }
+
+    public Concesionario(HashMap<String, Camion> camiones, HashMap<String, Bicicleta> bicicletas) {
+        this.coches = new HashSet<>();
+        this.motocicletas = new ArrayList<>();
+        this.camiones = camiones;
+        this.bicicletas = bicicletas;
     }
 
     public Concesionario(HashSet<Coche> coches, ArrayList<Motocicleta> motocicletas, HashMap<String, Camion> camiones, HashMap<String, Bicicleta> bicicletas) {

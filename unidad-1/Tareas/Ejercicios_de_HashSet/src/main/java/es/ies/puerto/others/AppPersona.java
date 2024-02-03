@@ -1,8 +1,7 @@
-package es.ies.puerto.map;
+package es.ies.puerto.others;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
 
 public class AppPersona {

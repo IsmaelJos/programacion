@@ -1,4 +1,4 @@
-package es.ies.puerto.map;
+package es.ies.puerto.others;
 
 import java.util.Objects;
 
