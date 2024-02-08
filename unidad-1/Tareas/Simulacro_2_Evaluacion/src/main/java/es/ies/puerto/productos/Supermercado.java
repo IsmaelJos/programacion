@@ -92,9 +92,9 @@ public class Supermercado {
 
     public float precioSoubenirs(){
         float precio = 0;
-        //for (Soubenir soubenir : soubenirs){
-        //    precio += soubenir.getPrecio();
-        //}
+        for (Soubenir soubenir : soubenirs.values()){
+            precio += soubenir.getPrecio();
+        }
         return precio;
     }
     public float precioProductos (){
