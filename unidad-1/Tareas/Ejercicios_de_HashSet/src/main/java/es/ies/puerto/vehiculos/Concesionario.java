@@ -135,7 +135,7 @@ public class Concesionario {
     }
     public float velocidadMediaCamiones(){
         float velocidadMedia = 0f;
-        for (Camion camion : camiones){
+        for (Camion camion : camiones.values()){
             velocidadMedia += camion.getVelocidad();
         }
         velocidadMedia = velocidadMedia/camiones.size();
@@ -173,7 +173,7 @@ public class Concesionario {
     }
     public float velocidadMediaBicicletas(){
         float velocidadMedia = 0f;
-        for (Bicicleta bicicleta : bicicletas){
+        for (Bicicleta bicicleta : bicicletas.values()){
             velocidadMedia += bicicleta.getVelocidad();
         }
         velocidadMedia = velocidadMedia/bicicletas.size();

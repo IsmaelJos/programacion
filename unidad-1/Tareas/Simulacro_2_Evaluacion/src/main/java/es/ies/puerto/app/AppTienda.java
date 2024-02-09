@@ -5,13 +5,14 @@ import es.ies.puerto.productos.Electronica;
 import es.ies.puerto.productos.Soubenir;
 import es.ies.puerto.productos.Supermercado;
 
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Scanner;
 
 public class AppTienda {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ParseException {
         HashSet<Alimento> alimentos = new HashSet<>();
         ArrayList<Electronica> electronicas = new ArrayList<>();
         HashMap<String, Soubenir> soubenirs = new HashMap<>();
@@ -31,54 +32,34 @@ public class AppTienda {
         String udi = "";
         switch (eleccion){
             case 1 :
-                System.out.println(
-                        "Elija la accion seleccionando el numero"+"\n"+
-                                "1 Añadir "+"\n"+
-                                "2 Mostrar "+"\n"+
-                                "3 Eliminar "+"\n"+
-                                "4 Modificar "+"\n"
-                );
+                soutMenuEleccion2();
                 eleccion2 = scanner.nextInt();
                 switch (eleccion2){
                     case 1 :
-                        System.out.println("Introduzca el nombre");
-                        nombre = scanner.nextLine();
-                        System.out.println("Introduzca el precio");
-                        precio = scanner.nextInt();
-                        System.out.println("Introduzca la fechaEntrada");
-                        fechaEntrada = scanner.nextLine();
-                        System.out.println("Introduzca la udi");
-                        udi = scanner.nextLine();
+                        nombre = inNombre();
+                        precio = inPrecio();
+                        fechaEntrada = inFechaEntrada();
+                        udi = inUdi();
                         supermercado.addAlimento(new Alimento(nombre,precio,fechaEntrada,udi));
                         System.out.println("ALIMENTO añadido");
                         break;
                     case 2 :
-                        System.out.println("Introduzca la udi");
-                        udi = scanner.nextLine();
+                        udi = inUdi();
                         System.out.println(supermercado.obtenerAlimento(udi));
                         break;
                     case 3 :
-                        System.out.println("Introduzca la nombre");
-                        nombre = scanner.nextLine();
-                        System.out.println("Introduzca el precio");
-                        precio = scanner.nextInt();
-                        System.out.println("Introduzca la fechaEntrada");
-                        fechaEntrada = scanner.nextLine();
-                        System.out.println("Introduzca la udi");
-                        udi = scanner.nextLine();
+                        nombre = inNombre();
+                        precio = inPrecio();
+                        fechaEntrada = inFechaEntrada();
+                        udi = inUdi();
                         supermercado.removeAlimento(new Alimento(nombre,precio,fechaEntrada,udi));
                         System.out.println("ALIMENTO eliminado");
                         break;
                     case 4 :
-                        System.out.println("Introduzca los nuevos datos y se modificaran los antiguos");
-                        System.out.println("Introduzca la nombre");
-                        nombre = scanner.nextLine();
-                        System.out.println("Introduzca el precio");
-                        precio = scanner.nextInt();
-                        System.out.println("Introduzca la fechaEntrada");
-                        fechaEntrada = scanner.nextLine();
-                        System.out.println("Introduzca la udi");
-                        udi = scanner.nextLine();
+                        nombre = inNombre();
+                        precio = inPrecio();
+                        fechaEntrada = inFechaEntrada();
+                        udi = inUdi();
                         supermercado.removeAlimento(supermercado.obtenerAlimento(udi));
                         supermercado.addAlimento(new Alimento(nombre,precio,fechaEntrada,udi));
                         System.out.println("Se han hecho los cambios a su ALIMENTO");
@@ -90,54 +71,34 @@ public class AppTienda {
                 }
                 break;
             case 2 :
-                System.out.println(
-                        "Elija la accion seleccionando el numero"+"\n"+
-                                "1 Añadir "+"\n"+
-                                "2 Mostrar "+"\n"+
-                                "3 Eliminar "+"\n"+
-                                "4 Modificar "+"\n"
-                );
+                soutMenuEleccion2();
                 eleccion2 = scanner.nextInt();
                 switch (eleccion2){
                     case 1 :
-                        System.out.println("Introduzca el nombre");
-                        nombre = scanner.nextLine();
-                        System.out.println("Introduzca el precio");
-                        precio = scanner.nextInt();
-                        System.out.println("Introduzca la fechaEntrada");
-                        fechaEntrada = scanner.nextLine();
-                        System.out.println("Introduzca la udi");
-                        udi = scanner.nextLine();
+                        nombre = inNombre();
+                        precio = inPrecio();
+                        fechaEntrada = inFechaEntrada();
+                        udi = inUdi();
                         supermercado.addElectronica(new Electronica(nombre,precio,fechaEntrada,udi));
                         System.out.println("ELECTRONICA añadido");
                         break;
                     case 2 :
-                        System.out.println("Introduzca la udi");
-                        udi = scanner.nextLine();
+                        udi = inUdi();
                         System.out.println(supermercado.obtenerElectronica(udi));
                         break;
                     case 3 :
-                        System.out.println("Introduzca la nombre");
-                        nombre = scanner.nextLine();
-                        System.out.println("Introduzca el precio");
-                        precio = scanner.nextInt();
-                        System.out.println("Introduzca la fechaEntrada");
-                        fechaEntrada = scanner.nextLine();
-                        System.out.println("Introduzca la udi");
-                        udi = scanner.nextLine();
+                        nombre = inNombre();
+                        precio = inPrecio();
+                        fechaEntrada = inFechaEntrada();
+                        udi = inUdi();
                         supermercado.removeElectronica(new Electronica(nombre,precio,fechaEntrada,udi));
                         System.out.println("ELECTRONICA eliminado");
                         break;
                     case 4 :
-                        System.out.println("Introduzca los nuevos datos y se modificaran los antiguos");
-                        System.out.println("Introduzca la nombre");
-                        nombre = scanner.nextLine();
-                        System.out.println("Introduzca el precio");
-                        precio = scanner.nextInt();
-                        System.out.println("Introduzca la fechaEntrada");
-                        fechaEntrada = scanner.nextLine();
-                        System.out.println("Introduzca la udi");
-                        udi = scanner.nextLine();
+                        nombre = inNombre();
+                        precio = inPrecio();
+                        fechaEntrada = inFechaEntrada();
+                        udi = inUdi();
                         supermercado.removeElectronica(supermercado.obtenerElectronica(udi));
                         supermercado.addElectronica(new Electronica(nombre,precio,fechaEntrada,udi));
                         System.out.println("Se han hecho los cambios a su ELECTRONICA");
@@ -149,48 +110,31 @@ public class AppTienda {
                 }
                 break;
             case 3 :
-                System.out.println(
-                        "Elija la accion seleccionando el numero"+"\n"+
-                                "1 Añadir "+"\n"+
-                                "2 Mostrar "+"\n"+
-                                "3 Eliminar "+"\n"+
-                                "4 Modificar "+"\n"
-                );
+                soutMenuEleccion2();
                 eleccion2 = scanner.nextInt();
                 switch (eleccion2) {
                     case 1 :
-                        System.out.println("Introduzca el nombre");
-                        nombre = scanner.nextLine();
-                        System.out.println("Introduzca el precio");
-                        precio = scanner.nextInt();
-                        System.out.println("Introduzca la fechaEntrada");
-                        fechaEntrada = scanner.nextLine();
-                        System.out.println("Introduzca la udi");
-                        udi = scanner.nextLine();
+                        nombre = inNombre();
+                        precio = inPrecio();
+                        fechaEntrada = inFechaEntrada();
+                        udi = inUdi();
                         supermercado.addSoubenir(new Soubenir(nombre,precio,fechaEntrada,udi));
                         System.out.println("SOUBENIR añadido");
                         break;
                     case 2 :
-                        System.out.print("Introduzca la udi");
-                        udi = scanner.nextLine();
+                        udi = inUdi();
                         System.out.println(supermercado.obtenerSoubenir(udi));
                         break;
                     case 3 :
-                        System.out.print("Introduzca la udi");
-                        udi = scanner.nextLine();
+                        udi = inUdi();
                         supermercado.removeSoubenir(udi);
                         System.out.println("SOUBENIR eliminado");
                         break;
                     case 4 :
-                        System.out.println("Introduzca los nuevos datos y se modificaran los antiguos");
-                        System.out.println("Introduzca la nombre");
-                        nombre = scanner.nextLine();
-                        System.out.println("Introduzca el precio");
-                        precio = scanner.nextInt();
-                        System.out.println("Introduzca la fechaEntrada");
-                        fechaEntrada = scanner.nextLine();
-                        System.out.println("Introduzca la udi");
-                        udi = scanner.nextLine();
+                        nombre = inNombre();
+                        precio = inPrecio();
+                        fechaEntrada = inFechaEntrada();
+                        udi = inUdi();
                         supermercado.removeSoubenir(udi);
                         supermercado.addSoubenir(new Soubenir(nombre,precio,fechaEntrada,udi));
                         System.out.println("Se han hecho los cambios a su SOUBENIR");
@@ -205,5 +149,42 @@ public class AppTienda {
                         "eliga 1,2 o 3 dependiendo de lo que este buscando");
                 break;
         }
+    }
+    static public void soutMenuEleccion2(){
+        System.out.println(
+                "Elija la accion seleccionando el numero"+"\n"+
+                        "1 Añadir "+"\n"+
+                        "2 Mostrar "+"\n"+
+                        "3 Eliminar "+"\n"+
+                        "4 Modificar "+"\n"
+        );
+    }
+    static public String inNombre(){
+        String nombre = "";
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Introduzca el nombre");
+        nombre = scanner.nextLine();
+        return nombre;
+    }
+    static public float inPrecio(){
+        float precio = 0;
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Introduzca el precio");
+        precio = scanner.nextInt();
+       return precio;
+    }
+    static public String inFechaEntrada(){
+        String fechaEntrada = "";
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Introduzca la fechaEntrada");
+        fechaEntrada = scanner.nextLine();
+        return fechaEntrada;
+    }
+    static public String inUdi(){
+        String udi = "";
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Introduzca la udi");
+        udi = scanner.nextLine();
+        return udi;
     }
 }

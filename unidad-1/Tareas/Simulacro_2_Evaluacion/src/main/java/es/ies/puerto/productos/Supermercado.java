@@ -1,5 +1,6 @@
 package es.ies.puerto.productos;
 
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -66,7 +67,7 @@ public class Supermercado {
     public Soubenir obtenerSoubenir(String key){
         return soubenirs.get(key);
     }
-    public HashSet<Alimento> obtenerAlimientosCaducados(){
+    public HashSet<Alimento> obtenerAlimientosCaducados() throws ParseException {
         HashSet<Alimento> alimentosCaducados = new HashSet<>();
         for (Alimento alimento:alimentos){
             if (alimento.caducado()){
