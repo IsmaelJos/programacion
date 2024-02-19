@@ -1,0 +1,19 @@
+
+k	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(³å±ºÿÿÿÿÿ
+@	java:S106"+Replace this use of System.out by a logger.(ÆÀûý
+<	java:S131"""Add a default case to this switch.(ÐËÏ¸ûÿÿÿÿ
+E	java:S106-"+Replace this use of System.out by a logger.(‡›™¨øÿÿÿÿ
+<	java:S131@""Add a default case to this switch.(ÐËÏ¸ûÿÿÿÿ
+E	java:S106J"+Replace this use of System.out by a logger.(Ýþ±îûÿÿÿÿ
+<	java:S131\""Add a default case to this switch.(ÐËÏ¸ûÿÿÿÿ
+E	java:S106g"+Replace this use of System.out by a logger.(Êÿ¢íúÿÿÿÿ
+<	java:S131z""Add a default case to this switch.(ÐËÏ¸ûÿÿÿÿ
+A	java:S106„"+Replace this use of System.out by a logger.(»¡ ®
+A	java:S106•"+Replace this use of System.out by a logger.(Ð¡‹›
+A	java:S106œ"+Replace this use of System.out by a logger.(ÆÀûý
+F	java:S106¦"+Replace this use of System.out by a logger.(…µæ‘ÿÿÿÿÿ
+F	java:S106«"+Replace this use of System.out by a logger.(ÝÛ¥ðþÿÿÿÿ
+F	java:S106°"+Replace this use of System.out by a logger.(ýÌÕ·ýÿÿÿÿ
+F	java:S106µ"+Replace this use of System.out by a logger.(Ëšá¸øÿÿÿÿ
+A	java:S106º"+Replace this use of System.out by a logger.(··§®
+A	java:S106¿"+Replace this use of System.out by a logger.(ò®ªÐ
