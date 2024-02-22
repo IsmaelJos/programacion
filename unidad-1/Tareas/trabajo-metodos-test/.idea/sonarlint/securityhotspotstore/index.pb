@@ -17,3 +17,15 @@ d
 4src/main/java/ies/puerto/presentacion/AppTienda.java,1/5/15394740dd82a9f1843972cde530d32f8794ddc3
 n
 >src/main/java/ies/puerto/negocio/abstractas/TiendaNegocio.java,c/3/c3ff25a483ac55f302a1169d6bbe6f83d3ecaca8
+k
+;src/main/java/ies/puerto/modelo/fichero/IFileInterface.java,2/3/23bf8e1bcd0e484df3447689aa1ec8ed1fb13b44
+w
+Gsrc/main/java/ies/puerto/modelo/fichero/abstractas/FicheroAbstract.java,7/6/76eb040e3dab238d603de2cfb0fc02198f5cce91
+d
+4src/main/java/ies/puerto/modelo/entity/Alimento.java,6/f/6f51476837f6959ed88c3aa735ff9f17961131e5
+d
+4src/main/java/ies/puerto/modelo/entity/Articulo.java,5/3/538ebb8a6885e603e0fc2b88b67e9c1227bbb7ae
+c
+3src/main/java/ies/puerto/modelo/entity/Aparato.java,1/2/122fa73ee2d467e878449dde7809ad3fe9a7a825
+w
+Gsrc/main/java/ies/puerto/modelo/fichero/csv/implementacion/FileCsv.java,b/a/ba3ed3f938900f8cdff9f498af02123db3b0831c

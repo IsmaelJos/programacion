@@ -1,0 +1,15 @@
+
+
+java:S1104	"]Make FICHERO_ALIMENTOS a static final constant or non-public and provide accessors if needed.(Œğ¼øÿÿÿÿ8ÉÌŒİ1
+y
+java:S1104
+"\Make FICHERO_APARATOS a static final constant or non-public and provide accessors if needed.(Ü«Ä»8ÉÌŒİ1
+†
+java:S1104"dMake FICHERO_CUIDADO_PERSONAL a static final constant or non-public and provide accessors if needed.(‡³äüÿÿÿÿ8ÉÌŒİ1
+z
+java:S1104"]Make FICHERO_SOUVENIRS a static final constant or non-public and provide accessors if needed.(”ÀÀÓ8ÉÌŒİ1
+}	java:S116	"\Rename this field "FICHERO_ALIMENTOS" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Œğ¼øÿÿÿÿ8ĞÌŒİ1
+w	java:S116
+"[Rename this field "FICHERO_APARATOS" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ü«Ä»8ĞÌŒİ1
+„	java:S116"cRename this field "FICHERO_CUIDADO_PERSONAL" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‡³äüÿÿÿÿ8ĞÌŒİ1
+x	java:S116"\Rename this field "FICHERO_SOUVENIRS" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(”ÀÀÓ8ĞÌŒİ1
