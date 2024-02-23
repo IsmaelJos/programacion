@@ -20,16 +20,9 @@ public class FileCsv extends FicheroAbstract implements IFileInterface {
     }
     public List<Producto> obtenerAlimentos(){return lectura(FICHERO_ALIMENTOS,"alimento");}
 
-    public Set<Producto> obtenerAparatos(){
-        List<Producto> aparatosList = lectura(FICHERO_APARATOS,"aparato");
-        HashSet<Producto> aparatosSet;
-        for (Producto producto : aparatosList){
+    public List<Producto> obtenerAparatos(){return lectura(FICHERO_APARATOS,"aparato");}
 
-        }
-        return aparatos;
-    }
-
-    public Map<String, Producto> obtenerSouvenirs(){return lectura(FICHERO_SOUVENIRS,"souvernir");}
+    public List<Producto> obtenerSouvenirs(){return lectura(FICHERO_SOUVENIRS,"souvernir");}
 
     public List<Producto> obtenerCuidados(){return lectura(FICHERO_CUIDADO_PERSONAL,"cuidado");}
 
@@ -100,10 +93,8 @@ public class FileCsv extends FicheroAbstract implements IFileInterface {
         return true;
     }
 
-
-
     @Override
     public boolean escritura(String path, String contenido) {
-        return false;
+        return almacenarEnFichero(path,contenido);
     }
 }

@@ -3,10 +3,7 @@ package ies.puerto.negocio.abstractas;
 import ies.puerto.modelo.entity.Producto;
 import ies.puerto.modelo.fichero.csv.implementacion.FileCsv;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 public class TiendaNegocio {
     FileCsv fileCsv;
@@ -21,9 +18,18 @@ public class TiendaNegocio {
         return fileCsv.obtenerAlimentos();
     }
 
-    Set<Producto> obtenerAparatos() {return fileCsv.obtenerAparatos();}
+    Set<Producto> obtenerAparatos() {
+        return new HashSet<>(fileCsv.obtenerAparatos());
+    }
 
-    Map<String,Producto> obtenerSouvenirs() {return fileCsv.obtenerSouvenirs();}
+    Map<String,Producto> obtenerSouvenirs() {
+        List<Producto> souvenirsList = fileCsv.obtenerSouvenirs();
+        HashMap<String,Producto> soubenirsMap= new HashMap<>();
+        for (Producto producto:souvenirsList) {
+            soubenirsMap.put(producto.getId(),producto);
+        }
+        return soubenirsMap;
+    }
 
     List<Producto> obtenerCuidados() {return fileCsv.obtenerCuidados();}
 

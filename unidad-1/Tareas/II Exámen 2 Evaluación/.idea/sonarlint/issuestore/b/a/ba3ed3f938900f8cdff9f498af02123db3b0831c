@@ -1,9 +1,4 @@
 
-g	java:S112="FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8éŸÔ·Ý1
-R
-java:S1481"0Remove this unused "aparatosSet" local variable.(ƒ°ž©ùÿÿÿÿ8òŸÔ·Ý1
-O
-java:S1481"-Remove this unused "producto" local variable.(‹€²¦ÿÿÿÿÿ8œ Ö·Ý1
-J	java:S108")Either remove or fill this block of code.(‹€²¦ÿÿÿÿÿ8øáÖ·Ý1
-X	java:S1257"<This block of commented-out lines of code should be removed.(å­Š8øŸÔ·Ý1
-L	java:S106@"+Replace this use of System.out by a logger.(×”œÝùÿÿÿÿ8ùŸÔ·Ý1
+g	java:S1126"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8‡É÷¹Ý1
+X	java:S1250"<This block of commented-out lines of code should be removed.(å­Š8•É÷¹Ý1
+L	java:S1069"+Replace this use of System.out by a logger.(×”œÝùÿÿÿÿ8–É÷¹Ý1
