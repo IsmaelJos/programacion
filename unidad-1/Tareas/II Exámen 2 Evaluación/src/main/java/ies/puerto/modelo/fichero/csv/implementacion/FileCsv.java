@@ -7,11 +7,8 @@ import ies.puerto.modelo.entity.Producto;
 import ies.puerto.modelo.fichero.IFileInterface;
 import ies.puerto.modelo.fichero.abstractas.FicheroAbstract;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
+import java.io.*;
+import java.util.*;
 
 public class FileCsv extends FicheroAbstract implements IFileInterface {
 
@@ -21,21 +18,20 @@ public class FileCsv extends FicheroAbstract implements IFileInterface {
         FICHERO_SOUVENIRS = "src/main/resources/souvenirs.csv";
         FICHERO_CUIDADO_PERSONAL = "src/main/resources/cuidado-personal.csv";
     }
-    public List<Producto> obtenerAlimentos(){
-        return lectura(FICHERO_ALIMENTOS,"alimento");
+    public List<Producto> obtenerAlimentos(){return lectura(FICHERO_ALIMENTOS,"alimento");}
+
+    public Set<Producto> obtenerAparatos(){
+        List<Producto> aparatosList = lectura(FICHERO_APARATOS,"aparato");
+        HashSet<Producto> aparatosSet;
+        for (Producto producto : aparatosList){
+
+        }
+        return aparatos;
     }
 
-    public List<Producto> obtenerAparatos(){
-        return lectura(FICHERO_APARATOS,"aparato");
-    }
+    public Map<String, Producto> obtenerSouvenirs(){return lectura(FICHERO_SOUVENIRS,"souvernir");}
 
-    public List<Producto> obtenerSouvenirs(){
-        return lectura(FICHERO_SOUVENIRS,"souvernir");
-    }
-
-    public List<Producto> obtenerCuidados(){
-        return lectura(FICHERO_CUIDADO_PERSONAL,"cuidado");
-    }
+    public List<Producto> obtenerCuidados(){return lectura(FICHERO_CUIDADO_PERSONAL,"cuidado");}
 
     @Override
     public List<Producto> lectura(String path, String articulo) {
@@ -92,6 +88,19 @@ public class FileCsv extends FicheroAbstract implements IFileInterface {
                 splitArray[3],
                 Integer.parseInt(splitArray[4]));
     }
+
+    public boolean almacenarProducto(String path, String articulo){
+        if (existeFichero(path)) {
+            try (BufferedWriter bw = new BufferedWriter(new FileWriter(path, true))) {
+                bw.write(articulo);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        return true;
+    }
+
+
 
     @Override
     public boolean escritura(String path, String contenido) {
