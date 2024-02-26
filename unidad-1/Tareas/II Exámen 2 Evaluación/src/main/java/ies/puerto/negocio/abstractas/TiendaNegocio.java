@@ -1,6 +1,6 @@
 package ies.puerto.negocio.abstractas;
 
-import ies.puerto.modelo.entity.Producto;
+import ies.puerto.modelo.entity.*;
 import ies.puerto.modelo.fichero.csv.implementacion.FileCsv;
 
 import java.util.*;
@@ -14,15 +14,22 @@ public class TiendaNegocio {
         }
         return true;
     }
-    List<Producto> obtenerAlimentos() {
+
+    private List<Alimento> alimentos;
+    private Set<Aparato> aparatos;
+    private Map<String, Souvenir> soubenirs;
+    private List<CuidadoPersonal> cuidados;
+
+
+    public List<Producto> obtenerAlimentos() {
         return fileCsv.obtenerAlimentos();
     }
 
-    Set<Producto> obtenerAparatos() {
+    public Set<Producto> obtenerAparatos() {
         return new HashSet<>(fileCsv.obtenerAparatos());
     }
 
-    Map<String,Producto> obtenerSouvenirs() {
+    public Map<String,Producto> obtenerSouvenirs() {
         List<Producto> souvenirsList = fileCsv.obtenerSouvenirs();
         HashMap<String,Producto> soubenirsMap= new HashMap<>();
         for (Producto producto:souvenirsList) {
@@ -30,8 +37,7 @@ public class TiendaNegocio {
         }
         return soubenirsMap;
     }
-
-    List<Producto> obtenerCuidados() {return fileCsv.obtenerCuidados();}
+    public List<Producto> obtenerCuidados() {return fileCsv.obtenerCuidados();}
 
     public List<Producto> obtenerProductos() {
         List<Producto> productos = new ArrayList<>();
@@ -42,5 +48,12 @@ public class TiendaNegocio {
         return productos;
     }
 
+    public boolean crearAlimento(Alimento alimento){
+
+        if (fileCsv.obtenerAlimentos().contains(alimento)){
+            return true;
+        }
+        return fileCsv.escritura("alimento", alimento.toCsv());
+    }
 
 }

@@ -27,7 +27,7 @@ public class FileCsv extends FicheroAbstract implements IFileInterface {
     public List<Producto> obtenerCuidados(){return lectura(FICHERO_CUIDADO_PERSONAL,"cuidado");}
 
     @Override
-    public List<Producto> lectura(String path, String articulo) {
+    public List<Producto> lectura(String path, String producto) {
         List<Producto> articulos = new ArrayList<>();
         if (existeFichero(path)) {
             try (BufferedReader br = new BufferedReader(new FileReader(path))) {
@@ -36,7 +36,7 @@ public class FileCsv extends FicheroAbstract implements IFileInterface {
                 while ((linea = br.readLine()) != null) {
                     if (i>0) {
                         String[] arrayElemento = linea.split(",");
-                        switch (articulo) {
+                        switch (producto) {
                             case "alimento":
                                 articulos.add(splitToAlimento(arrayElemento));
                                 break;
@@ -45,7 +45,7 @@ public class FileCsv extends FicheroAbstract implements IFileInterface {
                                 break;
                             default:
                                 articulos.add(splitToDefault(arrayElemento)) ;
-                                break;//Mostrar error;
+                                break;
                         }
                     }
                     i++;
@@ -94,7 +94,18 @@ public class FileCsv extends FicheroAbstract implements IFileInterface {
     }
 
     @Override
-    public boolean escritura(String path, String contenido) {
-        return almacenarEnFichero(path,contenido);
+    public boolean escritura(String tipoProducto, String contenido) {
+        switch (tipoProducto) {
+            case "alimento":
+                return almacenarEnFichero(FICHERO_ALIMENTOS, contenido);
+            case "aparato":
+                return almacenarEnFichero(FICHERO_APARATOS, contenido);
+            case "cuidado-personal":
+                return almacenarEnFichero(FICHERO_CUIDADO_PERSONAL, contenido);
+            case "soubenir":
+                return almacenarEnFichero(FICHERO_SOUVENIRS, contenido);
+            default:
+                return false;
+        }
     }
 }
