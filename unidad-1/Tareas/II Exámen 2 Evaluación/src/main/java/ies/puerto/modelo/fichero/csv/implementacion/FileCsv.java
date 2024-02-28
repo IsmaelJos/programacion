@@ -82,17 +82,6 @@ public class FileCsv extends FicheroAbstract implements IFileInterface {
                 Integer.parseInt(splitArray[4]));
     }
 
-    public boolean almacenarProducto(String path, String articulo){
-        if (existeFichero(path)) {
-            try (BufferedWriter bw = new BufferedWriter(new FileWriter(path, true))) {
-                bw.write(articulo);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-        return true;
-    }
-
     @Override
     public boolean escritura(String tipoProducto, String contenido) {
         switch (tipoProducto) {

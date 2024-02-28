@@ -1,44 +1,50 @@
 package ies.puerto.presentacion;
 
-import ies.puerto.modelo.entity.*;
-import ies.puerto.negocio.abstractas.TiendaNegocio;
+import ies.puertoCruz.productos.*;
 
+import java.util.HashMap;
 import java.util.Scanner;
 
-public class AppTienda {
+public class AppTiendaOld {
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        TiendaNegocio tiendaNegocio = new TiendaNegocio();
-        tiendaNegocio.setAlimentos(tiendaNegocio.obtenerAlimentosCsv());
-        tiendaNegocio.setAparatos(tiendaNegocio.obtenerAparatosCsv());
-        tiendaNegocio.setCuidados(tiendaNegocio.obtenerCuidadosCsv());
-        tiendaNegocio.setSouvenirs(tiendaNegocio.obtenerSouvenirsCsv());
-
-
-
+        HashMap<String, Alimento> AlimentosHashMap = new HashMap<>();
+        HashMap<String, Aparato> aparatoHashMap = new HashMap<>();
+        HashMap<String, CuidadoPersonal> cuidadoPersonalHashMap = new HashMap<>();
+        HashMap<String, Souvenir> souvenirHashMap = new HashMap<>();
+        Tienda tienda = new Tienda(AlimentosHashMap,aparatoHashMap,cuidadoPersonalHashMap,souvenirHashMap);
+        String nombre;
+        float precio;
+        String fechaEntrega;
+        String id;
+        String fechaCaducidad;
+        int popularidad;
+        int opcion2 = 0;
         System.out.println(
                 "Elije sobre cual producto quiere operar"+"\n"+
-                        "1. Alimento"+"\n"+
-                        "2. Aparato"+"\n"+
-                        "3. Cuidado Personal"+"\n"+
-                        "4. Souvenir");
+                "1. Alimento"+"\n"+
+                "2. Aparato"+"\n"+
+                "3. Cuidado Personal"+"\n"+
+                "4. Souvenir");
         int opcion = scanner.nextInt();
-        int opcion2 = 0;
-
-
         switch (opcion) {
             case 1:
                 opcion2 = pedirEleccion2();
                 switch (opcion2){
                     case 1:
-                        tiendaNegocio.anadirAlimento(new Alimento(pedirNombre(),pedirPrecio(),pedirFechaEntrega(),pedirID(),pedirFechaCaducidad()));
-                        System.out.println("Se ha creado el producto");
+                        nombre = pedirNombre();
+                        precio = pedirPrecio();
+                        fechaEntrega = pedirFechaEntrega();
+                        id = pedirID();
+                        fechaCaducidad = pedirFechaCaducidad();
+                        tienda.addAlimento(nombre,precio,fechaEntrega,id,fechaCaducidad);
                         break;
                     case 2:
-                        System.out.println(tiendaNegocio.buscarAlimento(pedirID()));
+                        id = pedirID();
+                        System.out.println(tienda.getAlimento(id));
                         break;
                     case 3:
-                        /*
                         nombre = pedirNombre();
                         precio = pedirPrecio();
                         fechaEntrega = pedirFechaEntrega();
@@ -47,17 +53,9 @@ public class AppTienda {
                         tienda.removeAlimento(id);
                         tienda.addAlimento(nombre,precio,fechaEntrega,id,fechaCaducidad);
                         break;
-                        */
-                        break;
                     case 4:
-                        /*
                         id = pedirID();
                         tienda.removeAlimento(id);
-                        break;
-                        */
-                        break;
-                    case 5:
-                        tiendaNegocio.leerAlimentos();
                         break;
                 }
                 break;
@@ -65,14 +63,17 @@ public class AppTienda {
                 opcion2 = pedirEleccion2();
                 switch (opcion2){
                     case 1:
-                        tiendaNegocio.anadirAparato(new Aparato(pedirNombre(),pedirPrecio(),pedirFechaEntrega(),pedirID()));
-                        System.out.println("Se ha creado el producto");
+                        nombre = pedirNombre();
+                        precio = pedirPrecio();
+                        fechaEntrega = pedirFechaEntrega();
+                        id = pedirID();
+                        tienda.addAparato(nombre,precio,fechaEntrega,id);
                         break;
                     case 2:
-                        System.out.println(tiendaNegocio.buscarAparato(pedirID()));
+                        id = pedirID();
+                        System.out.println(tienda.getAparato(id));
                         break;
                     case 3:
-                        /*
                         nombre = pedirNombre();
                         precio = pedirPrecio();
                         fechaEntrega = pedirFechaEntrega();
@@ -80,18 +81,9 @@ public class AppTienda {
                         tienda.removeAparato(id);
                         tienda.addAparato(nombre,precio,fechaEntrega,id);
                         break;
-                         */
-                        break;
-
                     case 4:
-                        /*
                         id = pedirID();
                         tienda.removeAparato(id);
-                        */
-                        break;
-
-                    case 5:
-                        tiendaNegocio.leerAparatos();
                         break;
                 }
                 break;
@@ -99,14 +91,18 @@ public class AppTienda {
                 opcion2 = pedirEleccion2();
                 switch (opcion2){
                     case 1:
-                        tiendaNegocio.anadirCuidados(new CuidadoPersonal(pedirNombre(),pedirPrecio(),pedirFechaEntrega(),pedirID(),pedirPopularidad()));
-                        System.out.println("Se ha creado el producto");
+                        nombre = pedirNombre();
+                        precio = pedirPrecio();
+                        fechaEntrega = pedirFechaEntrega();
+                        id = pedirID();
+                        popularidad = pedirPopularidad();
+                        tienda.addCuidadoPersonal(nombre,precio,fechaEntrega,id,popularidad);
                         break;
                     case 2:
-                        System.out.println(tiendaNegocio.buscarCuidado(pedirID()));
+                        id = pedirID();
+                        System.out.println(tienda.getCuidadoPersonal(id));
                         break;
                     case 3:
-                        /*
                         nombre = pedirNombre();
                         precio = pedirPrecio();
                         fechaEntrega = pedirFechaEntrega();
@@ -115,17 +111,9 @@ public class AppTienda {
                         tienda.removeCuidadoPersonal(id);
                         tienda.addCuidadoPersonal(nombre,precio,fechaEntrega,id,popularidad);
                         break;
-                         */
-                        break;
                     case 4:
-                        /*
                         id = pedirID();
                         tienda.removeCuidadoPersonal(id);
-                        break;
-                         */
-                        break;
-                    case 5:
-                        tiendaNegocio.leerCuidados();
                         break;
                 }
                 break;
@@ -133,14 +121,17 @@ public class AppTienda {
                 opcion2 = pedirEleccion2();
                 switch (opcion2){
                     case 1:
-                        tiendaNegocio.anadirSouvenir(new Souvenir(pedirNombre(),pedirPrecio(),pedirFechaEntrega(),pedirID()));
-                        System.out.println("Se ha creado el producto");
+                        nombre = pedirNombre();
+                        precio = pedirPrecio();
+                        fechaEntrega = pedirFechaEntrega();
+                        id = pedirID();
+                        tienda.addSouvenir(nombre,precio,fechaEntrega,id);
                         break;
                     case 2:
-                        System.out.println(tiendaNegocio.buscarSouvenir(pedirID()));
+                        id = pedirID();
+                        System.out.println(tienda.getSouvenir(id));
                         break;
                     case 3:
-                        /*
                         nombre = pedirNombre();
                         precio = pedirPrecio();
                         fechaEntrega = pedirFechaEntrega();
@@ -148,34 +139,26 @@ public class AppTienda {
                         tienda.removeSouvenir(id);
                         tienda.addSouvenir(nombre,precio,fechaEntrega,id);
                         break;
-                         */
-                        break;
                     case 4:
-                        /*
                         id = pedirID();
                         tienda.removeSouvenir(id);
-                        break;
-                         */
-                        break;
-                    case 5:
-                        tiendaNegocio.leerSouvenirs();
                         break;
                 }
                 break;
             default:
                 System.out.println("Ha escojido un numero fuera del rango");
-                break;
+            break;
         }
+
     }
     public static int pedirEleccion2(){
         Scanner scanner = new Scanner(System.in);
         System.out.println(
                 "Elija uno de las siguientes opciones" +"\n"+
-                        "1. Añadir"+"\n"+
-                        "2. Obtener"+"\n"+
-                        "3. Modificar"+"\n"+
-                        "4. Eliminar"+"\n"+
-                        "5. Mostrar todos");
+                "1. Añadir"+"\n"+
+                "2. Obtener"+"\n"+
+                "3. Modificar"+"\n"+
+                "4. Eliminar");
         return scanner.nextInt();
     }
     public static String pedirNombre(){
@@ -208,4 +191,5 @@ public class AppTienda {
         System.out.print("Añada la popularidad");
         return scanner.nextInt();
     }
+
 }

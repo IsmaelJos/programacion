@@ -8,7 +8,7 @@ import ies.puertoCruz.productos.Souvenir;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Tienda {
+public class TiendaOld {
     Map<String, Alimento> alimentoHashMap;
     Map<String, Aparato> aparatoHashMap;
     Map<String, CuidadoPersonal> cuidadoPersonalHashMap;
@@ -170,7 +170,7 @@ public class Tienda {
         }
     }
 
-    public Tienda(HashMap<String, Alimento> alimentoHashMap, HashMap<String, Aparato> aparatoHashMap, HashMap<String, CuidadoPersonal> cuidadoPersonalHashMap, HashMap<String, Souvenir> souvenirHashMap) {
+    public TiendaOld(HashMap<String, Alimento> alimentoHashMap, HashMap<String, Aparato> aparatoHashMap, HashMap<String, CuidadoPersonal> cuidadoPersonalHashMap, HashMap<String, Souvenir> souvenirHashMap) {
         this.alimentoHashMap = alimentoHashMap;
         this.aparatoHashMap = aparatoHashMap;
         this.cuidadoPersonalHashMap = cuidadoPersonalHashMap;
