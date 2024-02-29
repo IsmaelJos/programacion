@@ -1,19 +1,32 @@
 
-k	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(³å±ºÿÿÿÿÿ
-@	java:S106"+Replace this use of System.out by a logger.(ÆÀûý
-<	java:S131"""Add a default case to this switch.(ÐËÏ¸ûÿÿÿÿ
-E	java:S106-"+Replace this use of System.out by a logger.(‡›™¨øÿÿÿÿ
-<	java:S131@""Add a default case to this switch.(ÐËÏ¸ûÿÿÿÿ
-E	java:S106J"+Replace this use of System.out by a logger.(Ýþ±îûÿÿÿÿ
-<	java:S131\""Add a default case to this switch.(ÐËÏ¸ûÿÿÿÿ
-E	java:S106g"+Replace this use of System.out by a logger.(Êÿ¢íúÿÿÿÿ
-<	java:S131z""Add a default case to this switch.(ÐËÏ¸ûÿÿÿÿ
-A	java:S106„"+Replace this use of System.out by a logger.(»¡ ®
-A	java:S106•"+Replace this use of System.out by a logger.(Ð¡‹›
-A	java:S106œ"+Replace this use of System.out by a logger.(ÆÀûý
-F	java:S106¦"+Replace this use of System.out by a logger.(…µæ‘ÿÿÿÿÿ
-F	java:S106«"+Replace this use of System.out by a logger.(ÝÛ¥ðþÿÿÿÿ
-F	java:S106°"+Replace this use of System.out by a logger.(ýÌÕ·ýÿÿÿÿ
-F	java:S106µ"+Replace this use of System.out by a logger.(Ëšá¸øÿÿÿÿ
-A	java:S106º"+Replace this use of System.out by a logger.(··§®
-A	java:S106¿"+Replace this use of System.out by a logger.(ò®ªÐ
+v
+java:S1192#"YDefine a constant instead of duplicating this literal "Se ha creado el producto" 4 times.(Ûëé³8Ïæüªß1
+@	java:S106"+Replace this use of System.out by a logger.(ÆÀûý
+<	java:S131 ""Add a default case to this switch.(ÐËÏ¸ûÿÿÿÿ
+G	java:S106#"+Replace this use of System.out by a logger.(Ûëé³8•çüªß1
+G	java:S106&"+Replace this use of System.out by a logger.(â£úó8•çüªß1
+]	java:S125*"<This block of commented-out lines of code should be removed.(„‚Ú·úÿÿÿÿ8–çüªß1
+]	java:S1256"<This block of commented-out lines of code should be removed.(ÔœÊùÿÿÿÿ8—çüªß1
+<	java:S131B""Add a default case to this switch.(ÐËÏ¸ûÿÿÿÿ
+G	java:S106E"+Replace this use of System.out by a logger.(Ûëé³8™çüªß1
+L	java:S106H"+Replace this use of System.out by a logger.(äŠÍÚþÿÿÿÿ8šçüªß1
+]	java:S125L"<This block of commented-out lines of code should be removed.(„‚Ú·úÿÿÿÿ8›çüªß1
+]	java:S125X"<This block of commented-out lines of code should be removed.(ÔœÊùÿÿÿÿ8›çüªß1
+<	java:S131d""Add a default case to this switch.(ÐËÏ¸ûÿÿÿÿ
+@	java:S106g"+Replace this use of System.out by a logger.(Ûëé³
+L	java:S106j"+Replace this use of System.out by a logger.(ãÝûàüÿÿÿÿ8žçüªß1
+]	java:S125n"<This block of commented-out lines of code should be removed.(„‚Ú·úÿÿÿÿ8Ÿçüªß1
+]	java:S125z"<This block of commented-out lines of code should be removed.(ÔœÊùÿÿÿÿ8 çüªß1
+=	java:S131†""Add a default case to this switch.(ÐËÏ¸ûÿÿÿÿ
+H	java:S106‰"+Replace this use of System.out by a logger.(Ûëé³8£çüªß1
+M	java:S106Œ"+Replace this use of System.out by a logger.(»ÆÎ™þÿÿÿÿ8¤çüªß1
+^	java:S125"<This block of commented-out lines of code should be removed.(„‚Ú·úÿÿÿÿ8§çüªß1
+^	java:S125›"<This block of commented-out lines of code should be removed.(ÔœÊùÿÿÿÿ8¨çüªß1
+A	java:S106¦"+Replace this use of System.out by a logger.(Ð¡‹›
+A	java:S106¬"+Replace this use of System.out by a logger.(ÆÀûý
+M	java:S106·"+Replace this use of System.out by a logger.(…µæ‘ÿÿÿÿÿ8¬çüªß1
+F	java:S106¼"+Replace this use of System.out by a logger.(ÝÛ¥ðþÿÿÿÿ
+F	java:S106Á"+Replace this use of System.out by a logger.(ýÌÕ·ýÿÿÿÿ
+F	java:S106Æ"+Replace this use of System.out by a logger.(Ëšá¸øÿÿÿÿ
+A	java:S106Ë"+Replace this use of System.out by a logger.(··§®
+A	java:S106Ð"+Replace this use of System.out by a logger.(ò®ªÐ

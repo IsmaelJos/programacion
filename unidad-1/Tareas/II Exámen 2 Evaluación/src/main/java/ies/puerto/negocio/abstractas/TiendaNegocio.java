@@ -71,6 +71,10 @@ public class TiendaNegocio {
 
     public boolean anadirAlimento(Alimento alimento){
 
+        if (buscarAlimento(alimento.getId())!=null){
+            return false;
+        }
+
         alimentos.add(alimento);
 
         if (fileCsv.obtenerAlimentos().contains(alimento)){
@@ -79,6 +83,10 @@ public class TiendaNegocio {
         return fileCsv.escritura("alimento", alimento.toCsv());
     }
     public boolean anadirAparato(Aparato aparato){
+
+        if (buscarAparato(aparato.getId())!=null){
+            return false;
+        }
 
         aparatos.add(aparato);
 
@@ -90,6 +98,10 @@ public class TiendaNegocio {
 
     public boolean anadirSouvenir(Souvenir souvenir){
 
+        if (buscarSouvenir(souvenir.getId())!=null){
+            return false;
+        }
+
         souvenirs.put(souvenir.getId(),souvenir);
 
         if (fileCsv.obtenerSouvenirs().contains(souvenir)){
@@ -99,6 +111,10 @@ public class TiendaNegocio {
     }
 
     public boolean anadirCuidados(CuidadoPersonal cuidadoPersonal){
+
+        if (buscarCuidado(cuidadoPersonal.getId())!=null){
+            return false;
+        }
 
         cuidados.add(cuidadoPersonal);
 
