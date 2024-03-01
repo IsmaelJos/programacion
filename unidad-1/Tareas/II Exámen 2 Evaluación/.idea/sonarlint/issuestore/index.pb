@@ -11,8 +11,6 @@ d
 4src/main/java/ies/puerto/presentacion/AppTienda.java,1/5/15394740dd82a9f1843972cde530d32f8794ddc3
 k
 ;src/main/java/ies/puerto/modelo/fichero/IFileInterface.java,2/3/23bf8e1bcd0e484df3447689aa1ec8ed1fb13b44
-g
-7src/main/java/ies/puerto/negocio/abstractas/Tienda.java,2/2/2268b259ea6c9797f6db158b2af34a7771681ecd
 d
 4src/main/java/ies/puerto/modelo/entity/Producto.java,e/3/e397074ce37e847d747030e50fd6bd5321640cdf
 d
@@ -41,3 +39,5 @@ w
 Gsrc/main/java/ies/puerto/modelo/fichero/csv/implementacion/FileCsv.java,b/a/ba3ed3f938900f8cdff9f498af02123db3b0831c
 n
 >src/main/java/ies/puerto/negocio/abstractas/TiendaNegocio.java,c/3/c3ff25a483ac55f302a1169d6bbe6f83d3ecaca8
+7
+pom.xml,4/4/442292b8a7efeabbe4cc176709b833b1792140ec

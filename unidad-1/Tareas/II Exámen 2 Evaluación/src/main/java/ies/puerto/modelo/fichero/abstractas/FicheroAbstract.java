@@ -31,17 +31,4 @@ public abstract class FicheroAbstract {
         }
         return true;
     }
-    public Producto buscarEnFichero(String key){
-        CSVReader reader = new CSVReader(new FileReader("data.csv"));
-        String[] nextLine;
-        boolean found = false;
-        while ((nextLine = reader.readNext()) != null) {
-            if (nextLine[0].equals(key)) {
-                System.out.println("Registro encontrado: " + String.join(",", nextLine));
-                found = true;
-                return String.join(",", nextLine);
-                break;
-            }
-            reader.close();
-    }
 }

@@ -8,6 +8,7 @@ import ies.puerto.modelo.fichero.IFileInterface;
 import ies.puerto.modelo.fichero.abstractas.FicheroAbstract;
 
 import java.io.*;
+import java.time.Period;
 import java.util.*;
 
 public class FileCsv extends FicheroAbstract implements IFileInterface {
@@ -97,4 +98,14 @@ public class FileCsv extends FicheroAbstract implements IFileInterface {
                 return false;
         }
     }
+    public Producto buscarAlimento(String key){
+        CSVReader reader = new CSVReader(new FileReader(FICHERO_ALIMENTOS));
+        String[] nextLine;
+        while ((nextLine = reader.readNext()) != null) {
+            if (nextLine[3].equals(key)) {
+                return new Alimento(nextLine[0],Float.parseFloat(nextLine[1]),nextLine[2],nextLine[3],nextLine[4]);
+                break;
+            }
+            reader.close();
+        }
 }

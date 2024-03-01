@@ -1,0 +1,15 @@
+
+q	java:S116
+"\Rename this field "FICHERO_ALIMENTOS" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÛÁÁš
+u	java:S116"[Rename this field "FICHERO_APARATOS" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÒÕÏºûÿÿÿÿ
+v	java:S116"\Rename this field "FICHERO_SOUVENIRS" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(©ý¾òüÿÿÿÿ
+}	java:S116"cRename this field "FICHERO_CUIDADO_PERSONAL" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÃŒßÓùÿÿÿÿ
+K
+java:S1068
+"5Remove this unused "FICHERO_ALIMENTOS" private field.(ÛÁÁš
+O
+java:S1068"4Remove this unused "FICHERO_APARATOS" private field.(ÒÕÏºûÿÿÿÿ
+P
+java:S1068"5Remove this unused "FICHERO_SOUVENIRS" private field.(©ý¾òüÿÿÿÿ
+W
+java:S1068"<Remove this unused "FICHERO_CUIDADO_PERSONAL" private field.(ÃŒßÓùÿÿÿÿ
