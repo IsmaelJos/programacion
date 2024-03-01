@@ -1,11 +1,10 @@
 package ies.puerto.presentacion;
 
-import ies.puertoCruz.productos.*;
-
 import java.util.HashMap;
 import java.util.Scanner;
 
 public class AppTiendaOld {
+    /*
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -191,5 +190,5 @@ public class AppTiendaOld {
         System.out.print("Añada la popularidad");
         return scanner.nextInt();
     }
-
+*/
 }

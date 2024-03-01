@@ -1,6 +1,7 @@
 package ies.puerto.modelo.entity;
 
-import ies.puertoCruz.interfaces.IVendible;
+
+import ies.puerto.modelo.interfaces.IVendible;
 
 import java.util.Objects;
 

@@ -1,6 +1,7 @@
 package ies.puerto.modelo.entity;
 
-import ies.puertoCruz.interfaces.ISaludable;
+
+import ies.puerto.modelo.interfaces.ISaludable;
 
 public abstract class ProductoFresco extends Producto implements ISaludable {
     private String fechaCaducidad;

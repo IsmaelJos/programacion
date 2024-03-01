@@ -1,9 +1,8 @@
 package ies.puerto.modelo.fichero.abstractas;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+import ies.puerto.modelo.entity.Producto;
+
+import java.io.*;
 
 public abstract class FicheroAbstract {
     public String FICHERO_ALIMENTOS="";
@@ -31,5 +30,18 @@ public abstract class FicheroAbstract {
             return false;
         }
         return true;
+    }
+    public Producto buscarEnFichero(String key){
+        CSVReader reader = new CSVReader(new FileReader("data.csv"));
+        String[] nextLine;
+        boolean found = false;
+        while ((nextLine = reader.readNext()) != null) {
+            if (nextLine[0].equals(key)) {
+                System.out.println("Registro encontrado: " + String.join(",", nextLine));
+                found = true;
+                return String.join(",", nextLine);
+                break;
+            }
+            reader.close();
     }
 }

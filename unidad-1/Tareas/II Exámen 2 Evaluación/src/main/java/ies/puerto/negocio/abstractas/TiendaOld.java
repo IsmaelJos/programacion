@@ -1,14 +1,11 @@
 package ies.puerto.negocio.abstractas;
 
-import ies.puertoCruz.productos.Alimento;
-import ies.puertoCruz.productos.Aparato;
-import ies.puertoCruz.productos.CuidadoPersonal;
-import ies.puertoCruz.productos.Souvenir;
 
 import java.util.HashMap;
 import java.util.Map;
 
 public class TiendaOld {
+    /*
     Map<String, Alimento> alimentoHashMap;
     Map<String, Aparato> aparatoHashMap;
     Map<String, CuidadoPersonal> cuidadoPersonalHashMap;
@@ -215,5 +212,7 @@ public class TiendaOld {
                 ", cuidadoPersonalHashMap=" + cuidadoPersonalHashMap +
                 ", souvenirHashMap=" + souvenirHashMap +
                 '}';
-    }
+    }*/
 }
+
+
