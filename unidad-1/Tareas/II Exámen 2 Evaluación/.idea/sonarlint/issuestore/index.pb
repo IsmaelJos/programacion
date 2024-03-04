@@ -1,12 +1,4 @@
 
-k
-;src/main/java/ies/puertoCruz/productos/CuidadoPersonal.java,d/f/df633e0825e16b1b009386b348f7cc47d41e29f0
-c
-3src/main/java/ies/puertoCruz/productos/Aparato.java,d/b/db412fdc36a2218017d920c334612773440ccc84
-b
-2src/main/java/ies/puertoCruz/productos/Tienda.java,7/5/7573fac068c138864c676671086a3ac7c3c5eb8f
-_
-/src/main/java/ies/puertoCruz/app/AppTienda.java,0/0/00c5e4b4ace6be85c4890b9f4e07903e79ac7a7a
 d
 4src/main/java/ies/puerto/presentacion/AppTienda.java,1/5/15394740dd82a9f1843972cde530d32f8794ddc3
 k
@@ -27,8 +19,6 @@ j
 :src/main/java/ies/puerto/modelo/interfaces/ISaludable.java,a/2/a2ade2be40d73ee2584bc8cfe6604c87ac555cfc
 i
 9src/main/java/ies/puerto/modelo/interfaces/IVendible.java,7/6/76ee32c6ce2a27b4e3ce9f9f5ae2e9c26b1f5b83
-j
-:src/main/java/ies/puertoCruz/interfaces/IRecomendable.java,1/c/1cb0457297f2df6cb26742f4b9d0417e76f8c4c2
 k
 ;src/main/java/ies/puerto/modelo/entity/CuidadoPersonal.java,0/2/0231c53940f9bbdc02674e65a460052fe40dc378
 d
