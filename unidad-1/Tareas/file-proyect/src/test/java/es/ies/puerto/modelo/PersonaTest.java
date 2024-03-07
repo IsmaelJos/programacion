@@ -4,7 +4,9 @@ import es.ies.puerto.modelo.file.FileCsv;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.simpleframework.xml.core.Persister;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -49,4 +51,25 @@ public class PersonaTest {
         Assertions.assertTrue(persona.toCsv().contains(persona.DELIMITADOR),"");
     }
 
+    @Test
+    public void personaToXmlTest(){
+        Persister serializer = new Persister();
+        try {
+            serializer.write(persona, new File("src/main/resources/persona.xml"));
+        } catch (Exception e) {
+            Assertions.fail(e.getMessage());
+        }
+    }
+    @Test
+    public void xmlToPersonaTest(){
+        Persister serializer = new Persister();
+        try {
+            File file = new File("src/main/resources/persona.xml");
+            Persona persona = serializer.read(Persona.class, file);
+            Assertions.assertEquals(nombre,persona.getNombre(),
+                    "no se ha obtenido el valor esperado");
+        } catch (Exception e) {
+            Assertions.fail(e.getMessage());
+        }
+    }
 }

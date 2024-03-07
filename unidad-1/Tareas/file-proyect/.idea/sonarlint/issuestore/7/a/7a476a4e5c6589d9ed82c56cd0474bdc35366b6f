@@ -1,5 +1,0 @@
-
-i	java:S101"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(Ûè„8Í«½Ïà1
-r	java:S116"VRename this field "DELIMITADOR" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(²¨º¡8Î«½Ïà1
->
-java:S1170"!Make this final field static too.(²¨º¡8Ï«½Ïà1

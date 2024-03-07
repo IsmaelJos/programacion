@@ -2,6 +2,7 @@ package es.ies.puerto.modelo.file;
 
 import es.ies.puerto.modelo.Persona;
 import es.ies.puerto.utilidades.UtilidadesClass;
+import org.simpleframework.xml.Element;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -11,6 +12,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FileCsv extends UtilidadesClass {
+    @Element(name = "personas")
+    List<Persona>personas;
     String path ="src/main/resources/data.csv";
     public List<Persona> obtenerPersonas(){
         List<Persona> personas = new ArrayList<>();
@@ -69,6 +72,33 @@ public class FileCsv extends UtilidadesClass {
             } catch (IOException e) {
                 e.printStackTrace();
             }
+        }
+    }
+    public void updatePersona(Persona persona) {
+        List<Persona> personas = obtenerPersonas();
+        try (FileWriter writer = new FileWriter(path)) {
+            for (Persona p : personas) {
+                if (p.getId() == persona.getId()) {
+                    writer.write(persona.getId() + "," + persona.getNombre() + "," + persona.getEdad() + "," + persona.getEmail() + "\n");
+                } else {
+                    writer.write(p.getId() + "," + p.getNombre() + "," + p.getEdad() + "," + p.getEmail() + "\n");
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void deletePersona(Persona personaBuscar) {
+        List<Persona> personas = obtenerPersonas();
+        try (FileWriter writer = new FileWriter(path)) {
+            for (Persona persona : personas) {
+                if (persona.getId() != personaBuscar.getId()) {
+                    writer.write(persona.getId() + "," + persona.getNombre() + "," + persona.getEdad() + "," + persona.getEmail() + "\n");
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 

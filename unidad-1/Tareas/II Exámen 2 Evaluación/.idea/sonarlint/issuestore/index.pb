@@ -27,7 +27,5 @@ w
 Gsrc/main/java/ies/puerto/modelo/fichero/abstractas/FicheroAbstract.java,7/6/76eb040e3dab238d603de2cfb0fc02198f5cce91
 w
 Gsrc/main/java/ies/puerto/modelo/fichero/csv/implementacion/FileCsv.java,b/a/ba3ed3f938900f8cdff9f498af02123db3b0831c
-n
->src/main/java/ies/puerto/negocio/abstractas/TiendaNegocio.java,c/3/c3ff25a483ac55f302a1169d6bbe6f83d3ecaca8
 7
 pom.xml,4/4/442292b8a7efeabbe4cc176709b833b1792140ec

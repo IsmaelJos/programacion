@@ -1,15 +1,22 @@
 package es.ies.puerto.modelo;
 
 import es.ies.puerto.utilidades.UtilidadesClass;
+import org.simpleframework.xml.Element;
+import org.simpleframework.xml.Root;
 
 import java.util.Objects;
-
+@Root
 public class Persona extends UtilidadesClass {
+    @Element
     int id;
+    @Element
     String nombre;
+    @Element
     int edad;
+    @Element
     String email;
 
+    public Persona(){}
     public Persona (int id){
         this.id = id;
     }
