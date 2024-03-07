@@ -1,4 +1,4 @@
-package ies.puerto.negocio.abstractas;
+package ies.puerto.negocio;
 
 
 import java.util.HashMap;

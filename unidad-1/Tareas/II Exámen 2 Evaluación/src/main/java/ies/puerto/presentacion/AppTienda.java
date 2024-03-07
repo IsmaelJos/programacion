@@ -1,7 +1,7 @@
 package ies.puerto.presentacion;
 
 import ies.puerto.modelo.entity.*;
-import ies.puerto.negocio.abstractas.TiendaNegocio;
+import ies.puerto.negocio.TiendaNegocio;
 
 import java.util.Scanner;
 

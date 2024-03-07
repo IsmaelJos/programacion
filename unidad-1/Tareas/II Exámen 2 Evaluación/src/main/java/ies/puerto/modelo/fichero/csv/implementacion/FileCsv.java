@@ -7,9 +7,11 @@ import ies.puerto.modelo.entity.Producto;
 import ies.puerto.modelo.fichero.IFileInterface;
 import ies.puerto.modelo.fichero.abstractas.FicheroAbstract;
 
-import java.io.*;
-import java.time.Period;
-import java.util.*;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class FileCsv extends FicheroAbstract implements IFileInterface {
 
@@ -27,7 +29,7 @@ public class FileCsv extends FicheroAbstract implements IFileInterface {
 
     public List<Producto> obtenerCuidados(){return lectura(FICHERO_CUIDADO_PERSONAL,"cuidado");}
 
-    @Override
+
     public List<Producto> lectura(String path, String producto) {
         List<Producto> articulos = new ArrayList<>();
         if (existeFichero(path)) {
@@ -83,7 +85,7 @@ public class FileCsv extends FicheroAbstract implements IFileInterface {
                 Integer.parseInt(splitArray[4]));
     }
 
-    @Override
+
     public boolean escritura(String tipoProducto, String contenido) {
         switch (tipoProducto) {
             case "alimento":
@@ -98,14 +100,30 @@ public class FileCsv extends FicheroAbstract implements IFileInterface {
                 return false;
         }
     }
-    public Producto buscarAlimento(String key){
-        CSVReader reader = new CSVReader(new FileReader(FICHERO_ALIMENTOS));
-        String[] nextLine;
-        while ((nextLine = reader.readNext()) != null) {
-            if (nextLine[3].equals(key)) {
-                return new Alimento(nextLine[0],Float.parseFloat(nextLine[1]),nextLine[2],nextLine[3],nextLine[4]);
-                break;
-            }
-            reader.close();
-        }
+
+    @Override
+    public boolean crearProducto(Producto producto) {
+        return false;
+    }
+
+    @Override
+    public boolean eliminarProducto(Producto producto) {
+        return false;
+    }
+
+    @Override
+    public List<Producto> obtenerProductos() {
+        return null;
+    }
+
+    @Override
+    public Producto obtenerProducto(Producto producto) {
+        return null;
+    }
+
+    @Override
+    public boolean actualizarProducto(Producto producto) {
+        return false;
+    }
+
 }

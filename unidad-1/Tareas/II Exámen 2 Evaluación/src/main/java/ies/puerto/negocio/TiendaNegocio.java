@@ -1,4 +1,4 @@
-package ies.puerto.negocio.abstractas;
+package ies.puerto.negocio;
 
 import ies.puerto.modelo.entity.*;
 import ies.puerto.modelo.fichero.csv.implementacion.FileCsv;
@@ -7,12 +7,12 @@ import java.util.*;
 
 public class TiendaNegocio {
     FileCsv fileCsv;
-    public TiendaNegocio() {fileCsv = new FileCsv();}
-    public boolean buscarProducto(Producto producto, List<Producto> productos){
-        if (productos.contains(producto)){
-            return true;
-        }
-        return true;
+    public TiendaNegocio() {
+        fileCsv = new FileCsv();
+        alimentos = new ArrayList<>();
+        aparatos = new HashSet<>();
+        souvenirs = new HashMap<>();
+        cuidados = new ArrayList<>();
     }
 
     private List<Producto> alimentos;
@@ -39,6 +39,159 @@ public class TiendaNegocio {
     }
     public List<Producto> obtenerCuidadosCsv() {return fileCsv.obtenerCuidados();}
 
+    // CRUD Alimentos
+
+    public boolean existeAlimento(Producto producto){
+        return alimentos.contains(producto);
+    }
+
+    public boolean crearAlimento(Producto producto) {
+        if (!existeAlimento(producto)){
+            alimentos.add(producto);
+        }
+        return true;
+    }
+
+    public boolean eliminarAlimento(Producto producto) {
+        alimentos.remove(producto);
+        return true;
+    }
+
+
+
+    public Producto obtenerAlimento(Producto producto) {
+        if (existeAlimento(producto)){
+            int posicion = alimentos.indexOf(producto);
+            return alimentos.get(posicion);
+        }
+        return null;
+    }
+
+    public boolean actualizarAlimento(Producto producto) {
+        if (existeAlimento(producto)){
+            int posicion = alimentos.indexOf(producto);
+            alimentos.set(posicion,producto);
+            return true;
+        }
+        return false;
+    }
+    //CRUD Aparatos
+
+    public boolean existeAparato(Producto producto){
+        return aparatos.contains(producto);
+    }
+
+    public boolean crearAparato(Producto producto) {
+        if (!existeAparato(producto)){
+            aparatos.add(producto);
+        }
+        return true;
+    }
+
+    public boolean eliminarAparato(Producto producto) {
+        aparatos.remove(producto);
+        return true;
+    }
+
+
+
+    public Producto obtenerAparato(Producto producto) {
+        if (existeAparato(producto)){
+            for (Producto producto2 : aparatos) {
+                if (producto2.equals(producto)){
+                    return producto2;
+                }
+            }
+        }
+        return null;
+    }
+
+    public boolean actualizarAparato(Producto producto) {
+        if (existeAparato(producto)){
+            for (Producto producto2 : aparatos) {
+                if (producto2.equals(producto)){
+                    aparatos.remove(producto2);
+                    aparatos.add(producto);
+                }
+            }
+        }
+        return false;
+    }
+
+    //CRUD Souvenirs
+
+    public boolean existeSouvenir(Producto producto){
+        return souvenirs.containsKey(producto.getId());
+    }
+
+    public boolean crearSouvenir(Producto producto) {
+        if (!existeSouvenir(producto)){
+            souvenirs.put(producto.getId(), producto);
+        }
+        return true;
+    }
+
+    public boolean eliminarSouvenir(Producto producto) {
+        souvenirs.remove(producto.getId());
+        return true;
+    }
+
+
+
+    public Producto obtenerSouvenir(Producto producto) {
+        if (existeSouvenir(producto)){
+            return souvenirs.get(producto.getId());
+        }
+        return null;
+    }
+
+    public boolean actualizarSouvenir(Producto producto) {
+        if (existeSouvenir(producto)){
+            souvenirs.replace(producto.getId(),producto);
+            return true;
+        }
+        return false;
+    }
+
+    //CRUD Cuidados
+
+    public boolean existeCuidado(Producto producto){
+        return cuidados.contains(producto);
+    }
+
+    public boolean crearCuidado(Producto producto) {
+        if (!existeCuidado(producto)){
+            alimentos.add(producto);
+        }
+        return true;
+    }
+
+    public boolean eliminarCuidado(Producto producto) {
+        alimentos.remove(producto);
+        return true;
+    }
+
+
+
+    public Producto obtenerCuidado(Producto producto) {
+        if (existeCuidado(producto)){
+            int posicion = alimentos.indexOf(producto);
+            return alimentos.get(posicion);
+        }
+        return null;
+    }
+
+    public boolean actualizarCuidado(Producto producto) {
+        if (existeCuidado(producto)){
+            int posicion = alimentos.indexOf(producto);
+            alimentos.set(posicion,producto);
+            return true;
+        }
+        return false;
+    }
+
+    //FIN CRUD
+
     public List<Producto> obtenerProductos() {
         List<Producto> productos = new ArrayList<>();
         productos.addAll(fileCsv.obtenerAlimentos());
@@ -47,7 +200,6 @@ public class TiendaNegocio {
         productos.addAll(fileCsv.obtenerCuidados());
         return productos;
     }
-
     public void leerAlimentos(){
         for (Producto producto : alimentos){
             System.out.println(producto.toString());
