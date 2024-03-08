@@ -13,6 +13,9 @@ public abstract class Producto implements IVendible {
 
     public Producto() {
     }
+    public Producto(String id) {
+        this.id = id;
+    }
 
     public Producto(String nombre, float precio, String fechaEntrada, String id) {
         this.nombre = nombre;
@@ -45,9 +48,7 @@ public abstract class Producto implements IVendible {
         this.fechaEntrada = fechaEntrada;
     }
 
-    public String getId() {
-        return id;
-    }
+    public String getId() {return id;}
 
     public void setId(String id) {
         this.id = id;
@@ -79,4 +80,13 @@ public abstract class Producto implements IVendible {
         return nombre+","+precio+","+fechaEntrada+","+id;
     }
 
+    @Override
+    public float precioMaximo() {
+        return 0;
+    }
+
+    @Override
+    public int cantidadDisponible() {
+        return 0;
+    }
 }

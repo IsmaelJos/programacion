@@ -1,14 +1,17 @@
 package ies.puerto.modelo.fichero.abstractas;
 
-import ies.puerto.modelo.entity.Producto;
-
-import java.io.*;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 
 public abstract class FicheroAbstract {
     public String FICHERO_ALIMENTOS="";
     public String FICHERO_APARATOS="";
     public String FICHERO_CUIDADO_PERSONAL="";
     public String FICHERO_SOUVENIRS="";
+
+    public final String DELIMITADOR = ",";
 
     public boolean existeFichero(String path){
         if (path == null|| path.isEmpty()){
