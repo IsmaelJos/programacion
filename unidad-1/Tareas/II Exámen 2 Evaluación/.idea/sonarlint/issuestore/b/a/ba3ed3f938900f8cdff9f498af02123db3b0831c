@@ -1,4 +1,8 @@
 
 g	java:S1128"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8áœáÊá1
+Y
+java:S4973d"<Strings and Boxed types should be compared using "equals()".(ŸÊ’ó8Ô¤¼ùá1
 L	java:S106;"+Replace this use of System.out by a logger.(×”œİùÿÿÿÿ8÷áÊá1
 C	java:S131e""Add a default case to this switch.(œÈõ‹úÿÿÿÿ8×Ô¿õá1
+I
+java:S1168Ø"+Return an empty collection instead of null.(Ç¡ŸÌ8—§¼ùá1
