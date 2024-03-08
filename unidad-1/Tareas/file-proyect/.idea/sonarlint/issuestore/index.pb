@@ -13,8 +13,6 @@ h
 8src/test/java/es/ies/puerto/modelo/file/FileCsvTest.java,c/e/ce9f872f02989187769702a89943d2a45661e465
 7
 pom.xml,4/4/442292b8a7efeabbe4cc176709b833b1792140ec
-;
-persona.xml,7/5/75cbc9da0fd05e492f9206620729d921f8c0ed86
 s
 Csrc/main/java/es/ies/puerto/modelo/interfaces/ICrudOperaciones.java,5/7/57fe214171fa87aeca61152751149f7b7e9879d7
 d

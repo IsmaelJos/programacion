@@ -1,5 +1,4 @@
 
-g	java:S1129"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8áœáÊá1
-k
-java:S1192"IDefine a constant instead of duplicating this literal "alimento" 3 times.(Šš¦ùüÿÿÿÿ8äœáÊá1
-L	java:S106<"+Replace this use of System.out by a logger.(×”œİùÿÿÿÿ8÷áÊá1
+g	java:S1128"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8áœáÊá1
+L	java:S106;"+Replace this use of System.out by a logger.(×”œİùÿÿÿÿ8÷áÊá1
+C	java:S131e""Add a default case to this switch.(œÈõ‹úÿÿÿÿ8×Ô¿õá1

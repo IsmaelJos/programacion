@@ -1,15 +1,18 @@
 
 
-java:S1104"]Make FICHERO_ALIMENTOS a static final constant or non-public and provide accessors if needed.(Œğ¼øÿÿÿÿ8µîÕß1
+java:S1104	"]Make FICHERO_ALIMENTOS a static final constant or non-public and provide accessors if needed.(Œğ¼øÿÿÿÿ8µîÕß1
 y
-java:S1104	"\Make FICHERO_APARATOS a static final constant or non-public and provide accessors if needed.(Ü«Ä»8¶îÕß1
-†
 java:S1104
-"dMake FICHERO_CUIDADO_PERSONAL a static final constant or non-public and provide accessors if needed.(‡³äüÿÿÿÿ8·îÕß1
+"\Make FICHERO_APARATOS a static final constant or non-public and provide accessors if needed.(Ü«Ä»8¶îÕß1
+†
+java:S1104"dMake FICHERO_CUIDADO_PERSONAL a static final constant or non-public and provide accessors if needed.(‡³äüÿÿÿÿ8·îÕß1
 z
-java:S1104"]Make FICHERO_SOUVENIRS a static final constant or non-public and provide accessors if needed.(”ÀÀÓ8·îÕß1
-}	java:S116"\Rename this field "FICHERO_ALIMENTOS" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Œğ¼øÿÿÿÿ8½îÕß1
-w	java:S116	"[Rename this field "FICHERO_APARATOS" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ü«Ä»8½îÕß1
-„	java:S116
-"cRename this field "FICHERO_CUIDADO_PERSONAL" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‡³äüÿÿÿÿ8½îÕß1
-x	java:S116"\Rename this field "FICHERO_SOUVENIRS" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(”ÀÀÓ8½îÕß1
+java:S1104"]Make FICHERO_SOUVENIRS a static final constant or non-public and provide accessors if needed.(”ÀÀÓ8·îÕß1
+}	java:S116	"\Rename this field "FICHERO_ALIMENTOS" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Œğ¼øÿÿÿÿ8½îÕß1
+w	java:S116
+"[Rename this field "FICHERO_APARATOS" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ü«Ä»8½îÕß1
+„	java:S116"cRename this field "FICHERO_CUIDADO_PERSONAL" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‡³äüÿÿÿÿ8½îÕß1
+x	java:S116"\Rename this field "FICHERO_SOUVENIRS" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(”ÀÀÓ8½îÕß1
+r	java:S116"VRename this field "DELIMITADOR" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(²¨º¡8ÈÖ¿õá1
+>
+java:S1170"!Make this final field static too.(²¨º¡8ÈÖ¿õá1
