@@ -2,5 +2,5 @@
    <id>1</id>
    <nombre>nombre</nombre>
    <edad>12</edad>
-   <email>test@cat.com</email>
+   <correo>test@tet.com</correo>
 </persona>

@@ -1,12 +1,14 @@
 
 @
-java:S5786"Remove this 'public' modifier.(«ä…ùÿÿÿÿ8É¾ĞÑà1
+java:S5786"Remove this 'public' modifier.(«ä…ùÿÿÿÿ8ò¢”öá1
 ;
-java:S5786"Remove this 'public' modifier.(ÉÆ³­8É¾ĞÑà1
+java:S5786!"Remove this 'public' modifier.(ÉÆ³­8ò¢”öá1
+;
+java:S5786/"Remove this 'public' modifier.(‡èÓã8ó¢”öá1
 @
-java:S5786!"Remove this 'public' modifier.(¶ÆÇúÿÿÿÿ8É¾ĞÑà1
+java:S5786E"Remove this 'public' modifier.(Ô¶£‚ÿÿÿÿÿ8ó¢”öá1
 ;
 java:S5786
-"Remove this 'public' modifier.(‰¢„û8Ê¾ĞÑà1
+"Remove this 'public' modifier.(‰¢„û8ó¢”öá1
 x
-java:S3415"VSwap these 2 arguments so they are in the correct order: expected value, actual value.(Í­Í€ÿÿÿÿÿ8Ë¾ĞÑà1
+java:S3415$"VSwap these 2 arguments so they are in the correct order: expected value, actual value.(™……úÿÿÿÿ8ô¢”öá1

@@ -8,6 +8,6 @@ public interface ICrudOperaciones {
     public List<Persona> obtenerPersonas();
     public Persona obtenerPersona(Persona persona);
     public void addPersona(Persona persona);
-    public void updatePersona(Persona persona);
     public void deletePersona(Persona persona);
+    public void updatePersona(Persona persona);
 }

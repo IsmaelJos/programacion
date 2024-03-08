@@ -1,7 +1,9 @@
 
-^
-java:S1117"<Rename "personas" which hides the field declared at line 15.(”óÏışÿÿÿÿ8£Í’Íá1
-^
-java:S1117N"<Rename "personas" which hides the field declared at line 15.(‡ÜÈ¡şÿÿÿÿ8¬Í’Íá1
-^
-java:S1117]"<Rename "personas" which hides the field declared at line 15.(‡ÜÈ¡şÿÿÿÿ8¯Í’Íá1
+W
+java:S1117"<Rename "personas" which hides the field declared at line 14.(”óÏışÿÿÿÿ
+M
+java:S1481J"2Remove this unused "personaBuscar" local variable.(ô®ªÿÿÿÿÿ
+W
+java:S1117K"<Rename "personas" which hides the field declared at line 14.(‡ÜÈ¡şÿÿÿÿ
+W
+java:S1117W"<Rename "personas" which hides the field declared at line 14.(‡ÜÈ¡şÿÿÿÿ
