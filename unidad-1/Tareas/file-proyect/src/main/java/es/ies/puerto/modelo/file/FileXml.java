@@ -36,26 +36,22 @@ public class FileXml extends UtilidadesClass implements ICrudOperaciones {
 
     @Override
     public void addPersona(Persona persona) {
+        if (personas.contains(persona)){
+            return;
+        }
         personas.add(persona);
         PersonaList personaList = new PersonaList(personas);
-        Persister serializer = new Persister();
-        try {
-            serializer.write(personaList, new File(path));
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
+        actualizarFichero(personaList);
     }
 
     @Override
     public void deletePersona(Persona persona) {
+        if (!personas.contains(persona)){
+            return;
+        }
         personas.remove(persona);
         PersonaList personaList = new PersonaList(personas);
-        Persister serializer = new Persister();
-        try {
-            serializer.write(personaList, new File(path));
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
+        actualizarFichero(personaList);
     }
 
     @Override
@@ -66,6 +62,9 @@ public class FileXml extends UtilidadesClass implements ICrudOperaciones {
         }
         personas.set(posicion,persona);
         PersonaList personaList = new PersonaList(personas);
+        actualizarFichero(personaList);
+    }
+    private void actualizarFichero(PersonaList personaList){
         Persister serializer = new Persister();
         try {
             serializer.write(personaList, new File(path));

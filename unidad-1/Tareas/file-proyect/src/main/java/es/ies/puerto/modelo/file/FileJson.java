@@ -36,6 +36,9 @@ public class FileJson extends UtilidadesClass implements ICrudOperaciones {
 
     @Override
     public Persona obtenerPersona(Persona persona) {
+        if (!personas.contains(persona)){
+            return null;
+        }
         int posicion =  personas.indexOf(persona);
         if (posicion > 0 ) {
             return personas.get(posicion);

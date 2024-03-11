@@ -29,7 +29,5 @@ f
 6src/main/java/es/ies/puerto/config/ConfigProyecto.java,0/d/0d2ee49c889fcedc508329d2b28d4513bc4c9612
 G
 recursos-properties.txt,b/6/b611c441784cfc9c4d693f78deee25c6a08bb905
-j
-:src/test/java/es/ies/puerto/config/ProyectoConfigTest.java,5/c/5c87bcf3d54e3a436e95c17885e365bfbf8a657b
 r
 Bsrc/test/java/es/ies/puerto/config/ProyectoConfigProyectoTest.java,9/f/9f60b1f6b6e186123e72b514786e02a0e69e1868
