@@ -1,0 +1,8 @@
+
+t
+java:S3776"RRefactor this method to reduce its Cognitive Complexity from 18 to the 15 allowed.(±°çèşÿÿÿÿ8Ôş¶íã1
+>	java:S131""Add a default case to this switch.(‹Œô—8Öş¶íã1
+P
+java:S1128".Remove this unused import 'java.util.HashMap'.(™˜”€ùÿÿÿÿ8ÔÊĞíã1
+L
+java:S1128"*Remove this unused import 'java.util.Map'.(¼è½Òşÿÿÿÿ8ÔÊĞíã1
