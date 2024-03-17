@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
 import java.util.Arrays;
 import java.util.List;
 
-public class FileJsonTest {
+public class FileXmlTest {
     String aliasInsertar = "Tony Stonk";
     String generoInsertar = "Masculino";
     List<String> poderesInsertar = Arrays.asList("Vuelo","Armadura tecnológica avanzada","Rayos láser");
@@ -18,7 +18,7 @@ public class FileJsonTest {
 
     @BeforeEach
     public void beforeEach() {
-        persistencia = new FileJson();
+        persistencia = new FileXml();
         personajes = persistencia.obtenerPersonajes();
     }
 
@@ -27,20 +27,20 @@ public class FileJsonTest {
         Assertions.assertFalse(personajes.isEmpty(),
                 "No se ha obtenido el valor esperado");
     }
+
     @Test
     public void obtenerPersonaTest() {
-        Personaje personaBuscar = new Personaje("Iron Man");
-        personaBuscar = persistencia.obtenerPersonaje(personaBuscar);
-        Assertions.assertEquals(personaBuscar.getNombre(),"Iron Man",
+        Personaje personajeBuscar = new Personaje("Iron Man");
+        personajeBuscar = persistencia.obtenerPersonaje(personajeBuscar);
+        Assertions.assertEquals(personajeBuscar.getNombre(),"Iron Man",
                 "No se ha obtenido el valor esperado");
-        Assertions.assertNotNull(personaBuscar.getAlias(),
+        Assertions.assertNotNull(personajeBuscar.getAlias(),
                 "No se ha obtenido el valor esperado");
-        Assertions.assertNotNull(personaBuscar.getGenero(),
+        Assertions.assertNotNull (personajeBuscar.getGenero(),
                 "No se ha obtenido el valor esperado");
-        Assertions.assertNotNull(personaBuscar.getPoderes(),
+        Assertions.assertNotNull(personajeBuscar.getPoderes(),
                 "No se ha obtenido el valor esperado");
     }
-
     @Test
     public void addDeletePersonaTest() {
 
@@ -67,7 +67,7 @@ public class FileJsonTest {
         String nombreActualizar = "Iron Man";
         Personaje personajeBuscar = new Personaje(nombreActualizar);
         Personaje personajeActualizar = persistencia.obtenerPersonaje(personajeBuscar);
-        Personaje personajeBackup = persistencia.obtenerPersonaje(personajeBuscar);
+        Personaje personaBackup = persistencia.obtenerPersonaje(personajeBuscar);
         personajeActualizar.setAlias(aliasInsertar);
         personajeActualizar.setGenero(generoInsertar);
         personajeActualizar.setPoderes(poderesInsertar);
@@ -76,6 +76,6 @@ public class FileJsonTest {
         personajeBuscar = persistencia.obtenerPersonaje(personajeBuscar);
         Assertions.assertEquals(personajeBuscar.toString(), personajeActualizar.toString(),
                 "Los datos actualizados no son los esperados");
-        persistencia.updatePersonaje(personajeBackup);
+        persistencia.updatePersonaje(personaBackup);
     }
 }

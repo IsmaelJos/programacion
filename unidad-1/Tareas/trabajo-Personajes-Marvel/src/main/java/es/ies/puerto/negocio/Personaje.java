@@ -3,6 +3,7 @@ package es.ies.puerto.negocio;
 import es.ies.puerto.utilidades.Utilidades;
 import org.simpleframework.xml.Element;
 import org.simpleframework.xml.ElementList;
+import org.simpleframework.xml.Namespace;
 import org.simpleframework.xml.Root;
 
 import java.util.ArrayList;
@@ -21,17 +22,20 @@ public class Personaje extends Utilidades {
     @ElementList(name = "poderes",entry = "poder")
     List<String> poderes;
 
-    public Personaje(){};
+    public Personaje(){
+        this.poderes = new ArrayList<>();
+    };
 
     public Personaje(String nombre) {
         this.nombre = nombre;
+        this.poderes = new ArrayList<>();
     }
 
     public Personaje(String nombre, String alias, String genero, List<String> poderes) {
         this.nombre = nombre;
         this.alias = alias;
         this.genero = genero;
-        this.poderes = new ArrayList<>();
+        this.poderes = poderes;
     }
 
     public String getNombre() {
@@ -89,6 +93,6 @@ public class Personaje extends Utilidades {
         return Objects.hash(nombre);
     }
     public String toCsv(){
-        return nombre+DELIMITADOR+alias+DELIMITADOR+genero+DELIMITADOR+String.join(DELIMITADOR,poderes);
+        return nombre+DELIMITADOR+alias+DELIMITADOR+genero+DELIMITADOR+String.join(DELIMITADOR," "+poderes);
     }
 }

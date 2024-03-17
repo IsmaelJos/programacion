@@ -23,12 +23,16 @@ public class FileCsvTest {
         personajes = persistencia.obtenerPersonajes();
     }
     @Test
-    public void obtenerPersonasTest() {
+    public void a(){
+        System.out.println(personajes);
+    }
+    @Test
+    public void obtenerPersonajesTest() {
         Assertions.assertFalse(personajes.isEmpty(),
                 "No se ha obtenido el valor esperado");
     }
     @Test
-    public void obtenerPersonaTest() {
+    public void obtenerPersonajeTest() {
         Personaje personajeBuscar = new Personaje("Spider-Man");
         personajeBuscar = persistencia.obtenerPersonaje(personajeBuscar);
         Assertions.assertEquals(personajeBuscar.getNombre(),"Spider-Man",
@@ -41,7 +45,7 @@ public class FileCsvTest {
                 "No se ha obtenido el valor esperado");
     }
     @Test
-    public void addDeletePersonaTest() {
+    public void addDeletePersonajeTest() {
 
         int numPersonajesInicial = personajes.size();
         Personaje personajeInsertar = new Personaje("Mid Man", aliasInsertar,
@@ -62,7 +66,7 @@ public class FileCsvTest {
                 "No se ha obtenido el numero esperado");
     }
     @Test
-    public void actualizarPersona() {
+    public void actualizarPersonaje() {
         String nombreActualizar = "Bonk Man";
         Personaje personajeBuscar = new Personaje(nombreActualizar);
         Personaje personajeActualizar = persistencia.obtenerPersonaje(personajeBuscar);

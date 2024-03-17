@@ -26,13 +26,18 @@ public class FileCsv extends Utilidades implements ICrud {
         try (BufferedReader br = new BufferedReader(new FileReader(path))) {
             String linea;
             while ((linea = br.readLine()) != null) {
-                String[] datos = linea.split(DELIMITADOR);
-                String nombre = datos[0];
-                String alias = datos[1];
-                String genero = datos[2];
-                List<String> poderes = Arrays.asList(datos[3].split(DELIMITADOR));
-                Personaje personaje = new Personaje(nombre, alias, genero, poderes);
-                personajes.add(personaje);
+
+                    String[] datos = linea.split(DELIMITADOR);
+                    String nombre = datos[0];
+                    String alias = datos[1];
+                    String genero = datos[2];
+                    List<String> newPoderes = new ArrayList<>();
+                    for (int i = 3; i < datos.length; i++) {
+                        newPoderes.add(datos[i]);
+                    }
+                    //List<String> poderes = Arrays.asList(datos[3].split(DELIMITADOR));
+                    Personaje personaje = new Personaje(nombre, alias, genero, newPoderes);
+                    personajes.add(personaje);
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -48,13 +53,16 @@ public class FileCsv extends Utilidades implements ICrud {
             while (((linea = br.readLine()) != null) && !encontrado) {
                 String[] datos = linea.split(DELIMITADOR);
                 String nombre = datos[0];
-                if (nombre == personaje.getNombre()) {
+                if (nombre.equals(personaje.getNombre())) {
                     String alias = datos[1];
                     String genero = datos[2];
-                    List<String> poderes = Arrays.asList(datos[3].split(DELIMITADOR));
+                    List<String> newPoderes = new ArrayList<>();
+                    for (int i = 3; i < datos.length; i++) {
+                        newPoderes.add(datos[i]);
+                    }
                     personaje.setAlias(alias);
                     personaje.setGenero(genero);
-                    personaje.setPoderes(poderes);
+                    personaje.setPoderes(newPoderes);
                     encontrado = true;
                 }
             }

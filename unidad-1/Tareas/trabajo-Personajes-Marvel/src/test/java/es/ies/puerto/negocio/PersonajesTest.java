@@ -35,7 +35,7 @@ public class PersonajesTest {
     public void xmlToPersonasTest() {
         Persister serializer = new Persister();
         try {
-            File file = new File("src/main/resources/personas.xml");
+            File file = new File("src/main/resources/datos.xml");
             Personajes personajes = serializer.read(Personajes.class, file);
             Assertions.assertNotNull(personajes,
                     "Se ha obtenido un valor nulo");
