@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 import org.simpleframework.xml.core.Persister;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -18,15 +19,16 @@ public class PersonajesTest {
     Personajes personajes;
     @BeforeEach
     public void beforeEach() {
-        personajes =new Personajes();
         personaje = new Personaje(nombre, alias, genero, poderes);
+        personajes = new Personajes();
+
     }
     @Test
     public void personajesToXml() {
 
         Persister serializer = new Persister();
         try {
-            serializer.write(personaje, new File("src/main/resources/persona.xml"));
+            serializer.write(personaje, new File("src/main/resources/datosTest.xml"));
         } catch (Exception e) {
             Assertions.fail(e.getMessage());
         }
@@ -39,7 +41,7 @@ public class PersonajesTest {
             Personajes personajes = serializer.read(Personajes.class, file);
             Assertions.assertNotNull(personajes,
                     "Se ha obtenido un valor nulo");
-            Assertions.assertTrue(!personajes.getPersonajes().isEmpty(),
+            Assertions.assertFalse(personajes.getPersonajes().isEmpty(),
                     "No ha obtenido una lista vacia");
         } catch (Exception e) {
             Assertions.fail(e.getMessage());

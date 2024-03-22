@@ -78,7 +78,7 @@ public class FileCsv extends Utilidades implements ICrud {
         personajeBuscar = obtenerPersonaje(personajeBuscar);
         if (personajeBuscar.getAlias() == null) {
             try (FileWriter writer = new FileWriter(path, true)) {
-                writer.write(personaje.toCsv()+ "\n");
+                writer.write(personaje.toCsv()+'\'');
             } catch (IOException e) {
                 e.printStackTrace();
             }

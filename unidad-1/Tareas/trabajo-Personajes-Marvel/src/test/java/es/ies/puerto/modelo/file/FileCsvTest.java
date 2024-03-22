@@ -23,10 +23,6 @@ public class FileCsvTest {
         personajes = persistencia.obtenerPersonajes();
     }
     @Test
-    public void a(){
-        System.out.println(personajes);
-    }
-    @Test
     public void obtenerPersonajesTest() {
         Assertions.assertFalse(personajes.isEmpty(),
                 "No se ha obtenido el valor esperado");

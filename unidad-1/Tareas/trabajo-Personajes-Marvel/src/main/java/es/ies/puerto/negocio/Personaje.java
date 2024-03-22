@@ -1,5 +1,6 @@
 package es.ies.puerto.negocio;
 
+import com.google.gson.annotations.SerializedName;
 import es.ies.puerto.utilidades.Utilidades;
 import org.simpleframework.xml.Element;
 import org.simpleframework.xml.ElementList;
@@ -9,7 +10,6 @@ import org.simpleframework.xml.Root;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-
 @Root(name = "personaje")
 public class Personaje extends Utilidades {
 
@@ -93,6 +93,6 @@ public class Personaje extends Utilidades {
         return Objects.hash(nombre);
     }
     public String toCsv(){
-        return nombre+DELIMITADOR+alias+DELIMITADOR+genero+DELIMITADOR+String.join(DELIMITADOR," "+poderes);
+        return nombre+DELIMITADOR+alias+DELIMITADOR+genero+DELIMITADOR+String.join(DELIMITADOR,poderes);
     }
 }
