@@ -1,0 +1,8 @@
+
+t
+java:S1450	"RRemove the "con" field and declare it as a local variable in the relevant methods.(èÜ¼Éüÿÿÿÿ8ã¯êÑé1
+X	java:S125"<This block of commented-out lines of code should be removed.(ùèì8æ¯êÑé1
+J
+java:S1068"(Remove this unused "user" private field.(‡ÏÇ³øÿÿÿÿ8ç¯êÑé1
+N
+java:S1068",Remove this unused "password" private field.(œãë­úÿÿÿÿ8ç¯êÑé1

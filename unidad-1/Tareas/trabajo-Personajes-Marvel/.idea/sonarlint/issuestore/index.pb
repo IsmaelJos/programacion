@@ -21,3 +21,5 @@ f
 6src/test/java/es/ies/puerto/negocio/PersonajeTest.java,d/6/d6ed456153f286f21a94a317ddc9f211d6b59c74
 g
 7src/test/java/es/ies/puerto/negocio/PersonajesTest.java,d/8/d8b2706c3fbddc60843ba4e43b51c98ff0a7c685
+7
+pom.xml,4/4/442292b8a7efeabbe4cc176709b833b1792140ec
