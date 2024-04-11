@@ -44,7 +44,7 @@ public class OperacionesBd extends Conexion implements ICrud {
         ResultSet rs = null;
         try {
             statement = getConexion().createStatement();
-            rs = statement.executeQuery("select p.poder from Poderes as p where p.personaje_id= '"+idPersonaje+"'");
+            rs = statement.executeQuery("select p.poder from Poderes as p where p.personaje_id = '"+idPersonaje+"'");
             while (rs.next()) {
                 list.add(rs.getString("poder"));
             }
