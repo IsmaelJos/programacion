@@ -3,9 +3,7 @@ package es.ies.puerto.modelo.db;
 import es.ies.puerto.exeption.UsuarioException;
 import es.ies.puerto.modelo.interfaces.ICrud;
 import es.ies.puerto.negocio.Personaje;
-import es.ies.puerto.negocio.Personajes;
 
-import java.security.PrivateKey;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -69,7 +67,7 @@ public class OperacionesBd extends Conexion implements ICrud {
         return list;
     }
 
-    private Set<Personaje> obtenerPersonaje(String query) throws UsuarioException {
+    private Set<Personaje> obtener(String query) throws UsuarioException {
         Set<Personaje> lista = new HashSet<>();
         Statement statement = null;
         ResultSet rs = null;
@@ -106,7 +104,12 @@ public class OperacionesBd extends Conexion implements ICrud {
 
     @Override
     public List<Personaje> obtenerPersonajes() {
-        return null;
+        String query = "select p.id, p.nombre, p.alias, p.genero from personajes as p";
+        try {
+            return (List<Personaje>) obtener(query);
+        } catch (UsuarioException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Override

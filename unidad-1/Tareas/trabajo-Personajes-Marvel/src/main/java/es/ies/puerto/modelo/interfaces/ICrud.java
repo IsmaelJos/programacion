@@ -1,5 +1,6 @@
 package es.ies.puerto.modelo.interfaces;
 
+import es.ies.puerto.exeption.UsuarioException;
 import es.ies.puerto.negocio.Personaje;
 
 import java.util.List;
