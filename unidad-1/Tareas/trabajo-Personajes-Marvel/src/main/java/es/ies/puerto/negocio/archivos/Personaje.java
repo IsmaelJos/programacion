@@ -1,4 +1,4 @@
-package es.ies.puerto.negocio;
+package es.ies.puerto.negocio.archivos;
 
 import es.ies.puerto.utilidades.Utilidades;
 import org.simpleframework.xml.Element;

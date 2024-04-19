@@ -4,7 +4,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 import es.ies.puerto.modelo.interfaces.ICrud;
-import es.ies.puerto.negocio.Personaje;
+import es.ies.puerto.negocio.archivos.Personaje;
 import es.ies.puerto.utilidades.Utilidades;
 
 import java.io.FileWriter;

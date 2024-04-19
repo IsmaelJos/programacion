@@ -1,5 +1,6 @@
 package es.ies.puerto.negocio;
 
+import es.ies.puerto.negocio.archivos.Personaje;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

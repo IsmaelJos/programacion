@@ -1,6 +1,6 @@
 package es.ies.puerto.modelo.interfaces;
 
-import es.ies.puerto.negocio.Personaje;
+import es.ies.puerto.negocio.archivos.Personaje;
 
 import java.util.List;
 
