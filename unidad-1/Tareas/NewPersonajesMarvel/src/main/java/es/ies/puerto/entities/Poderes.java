@@ -16,5 +16,19 @@ public class Poderes {
     private String poder;
 
 
+    public Integer getId() {
+        return id;
+    }
 
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getPoder() {
+        return poder;
+    }
+
+    public void setPoder(String poder) {
+        this.poder = poder;
+    }
 }
