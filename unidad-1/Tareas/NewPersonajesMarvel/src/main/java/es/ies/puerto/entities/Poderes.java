@@ -1,12 +1,11 @@
 package es.ies.puerto.entities;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name = "Poderes")
 public class Poderes {
-    private static final long serialVersionUID = -7250234396452258822L;
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", nullable = false)
@@ -15,6 +14,11 @@ public class Poderes {
     @Column(name = "poder", nullable = false)
     private String poder;
 
+    @ManyToMany
+    private Set<Personaje> personajes;
+
+    public Poderes() {
+    }
 
     public Integer getId() {
         return id;
@@ -30,5 +34,13 @@ public class Poderes {
 
     public void setPoder(String poder) {
         this.poder = poder;
+    }
+
+    public Set<Personaje> getPersonajes() {
+        return personajes;
+    }
+
+    public void setPersonajes(Set<Personaje> personajes) {
+        this.personajes = personajes;
     }
 }

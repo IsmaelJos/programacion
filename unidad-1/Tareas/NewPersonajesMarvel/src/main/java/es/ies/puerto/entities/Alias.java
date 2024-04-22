@@ -5,8 +5,6 @@ import javax.persistence.*;
 @Entity
 @Table(name = "Alias")
 public class Alias {
-    private static final long serialVersionUID = -7250234396452258822L;
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", nullable = false)
@@ -18,6 +16,9 @@ public class Alias {
     @ManyToOne
     private Personaje personaje;
 
+
+    public Alias() {
+    }
 
     public Integer getId() {
         return id;

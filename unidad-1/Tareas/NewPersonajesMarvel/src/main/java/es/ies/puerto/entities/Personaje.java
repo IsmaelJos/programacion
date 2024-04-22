@@ -6,8 +6,6 @@ import java.util.Set;
 @Entity
 @Table(name = "Personajes")
 public class Personaje {
-    private static final long serialVersionUID = -7250234396452258822L;
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", nullable = false)
@@ -20,6 +18,15 @@ public class Personaje {
 
     @OneToMany(mappedBy = "Personaje")
     private Set<Alias> aliases;
+
+    @ManyToMany(mappedBy = "Personaje")
+    @JoinTable(name = "Personaje",
+            joinColumns = { @JoinColumn(name = "personaje_id") },
+            inverseJoinColumns = { @JoinColumn(name = "poder_id")})
+    private Set<Poderes> poderes;
+
+    public Personaje() {
+    }
 
     public Integer getId() {
         return id;
@@ -51,6 +58,14 @@ public class Personaje {
 
     public void setAliases(Set<Alias> aliases) {
         this.aliases = aliases;
+    }
+
+    public Set<Poderes> getPoderes() {
+        return poderes;
+    }
+
+    public void setPoderes(Set<Poderes> poderes) {
+        this.poderes = poderes;
     }
 }
 
