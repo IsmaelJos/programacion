@@ -1,4 +1,7 @@
-package es.jpa.hibernate.example.entities;
+package es.jpa.hibernate.example.modelo.entities;
+
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 import javax.persistence.*;
 import java.util.Set;
@@ -6,6 +9,8 @@ import java.util.Set;
 @Entity
 @Table(name = "profesor")
 public class Profesor {
+    private static final long serialVersionUID = 1;
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", nullable = false)
@@ -14,9 +19,10 @@ public class Profesor {
     @Column(name = "nombre")
     private String nombre;
 
-    @ManyToMany(mappedBy = "profesores")
+    @ManyToMany(fetch = FetchType.LAZY,
+            mappedBy = "profesores")
+    @Fetch(FetchMode.SELECT)
     private Set<Alumno> alumnos;
-
 
     public Integer getId() {
         return id;

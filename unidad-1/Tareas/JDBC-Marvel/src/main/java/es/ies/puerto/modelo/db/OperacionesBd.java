@@ -1,13 +1,13 @@
 package es.ies.puerto.modelo.db;
 
 import es.ies.puerto.exception.UsuarioException;
-import es.ies.puerto.modelo.Usuario;
+import es.ies.puerto.modelo.Personajes;
+import es.ies.puerto.modelo.original.Usuario;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 public class OperacionesBd extends Conexion{
@@ -37,20 +37,20 @@ public class OperacionesBd extends Conexion{
         }
     }
 
-    private Set<Usuario> obtener(String query) throws UsuarioException {
-        Set<Usuario> lista = new HashSet<>();
+    private Set<Personajes> obtenerPersonaje(String query) throws UsuarioException {
+        Set<Personajes> lista = new HashSet<>();
         Statement statement = null;
         ResultSet rs = null;
         try {
             statement = getConexion().createStatement();
             rs = statement.executeQuery(query);
             while (rs.next()) {
-                String userId = rs.getString("id");
+                int userId = rs.getInt("id");
                 String userName = rs.getString("nombre");
-                int userAge = rs.getInt("edad");
-                String userCity = rs.getString("ciudad");
-                Usuario usuario = new Usuario(userId, userName, userAge, userCity);
-                lista.add(usuario);
+                String userAlias = rs.getString("alias");
+                String userCity = rs.getString("genero");
+                Personajes personaje = new Personajes(userId, userName, userAlias, userCity);
+                lista.add(personaje);
             }
         } catch (SQLException exception) {
             throw new UsuarioException(exception.getMessage(), exception);
@@ -71,39 +71,39 @@ public class OperacionesBd extends Conexion{
         }
         return lista;
     }
-    public Set<Usuario> obtenerUsuarios() throws UsuarioException {
-        String query = "select u.id, u.nombre, u.edad, u.ciudad from usuarios as u";
-        return obtener(query);
+    public Set<Personajes> obtenerPersonajes() throws UsuarioException {
+        String query = "select p.id, p.nombre, p.alias, p.genero from Personajes as p";
+        return obtenerPersonaje(query);
     }
 
-    public Usuario obtenerUsuario(Usuario usuario) throws UsuarioException {
-        String query = "select u.id, u.nombre, u.edad, u.ciudad from usuarios as u" +
-                " where u.id='"+usuario.getId()+"'";
-        Set<Usuario> lista = obtener(query);
+    public Personajes obtenerPersonaje(Personajes personajes) throws UsuarioException {
+        String query = "select p.id, p.nombre, p.alias, p.genero from Personajes as p" +
+                " where p.id='"+personajes.getId()+"'";
+        Set<Personajes> lista = obtenerPersonaje(query);
         if(lista.isEmpty()) {
             return null;
         }
         return lista.iterator().next();
     }
 
-    public void insertarUsuario(Usuario usuario) throws UsuarioException {
-        String query = "INSERT INTO usuarios as u (nombre, edad, ciudad)" +
-                " VALUES ('"+usuario.getNombre()+"',"
-                + usuario.getEdad()+"," +
-                " '"+usuario.getCiudad()+"')";
+    public void insertarPersonaje(Personajes personaje) throws UsuarioException {
+        String query = "INSERT INTO Personajes as p (nombre, alias, genero)" +
+                " VALUES ('"+personaje.getNombre()+"',"
+                + "'"+personaje.getAlias()+"'," +
+                " '"+personaje.getGenero()+"')";
         actualizar(query);
     }
 
-    public void actualizarUsuario(Usuario usuario) throws UsuarioException{
-        String query = "update usuarios set nombre='"+usuario.getNombre()+"', " +
-                "ciudad='"+usuario.getCiudad()+"', edad="+usuario.getEdad()+" " +
-                "where id='"+usuario.getId()+"'";
+    public void actualizarPersonaje(Personajes personaje) throws UsuarioException{
+        String query = "update Personajes set nombre='"+personaje.getNombre()+"', " +
+                "alias='"+personaje.getAlias()+"', genero='"+personaje.getGenero()+"' " +
+                "where id='"+personaje.getId()+"'";
         actualizar(query);
     }
 
-    public void eliminarUsuario(Usuario usuario) throws UsuarioException{
-        String query = "delete FROM usuarios as u" +
-                " where u.id='"+usuario.getId()+"'";
+    public void eliminarPersonaje(Personajes personaje) throws UsuarioException{
+        String query = "delete FROM Personajes as p" +
+                " where p.id='"+personaje.getId()+"'";
         actualizar(query);
     }
 

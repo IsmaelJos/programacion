@@ -1,4 +1,4 @@
-package es.jpa.hibernate.example.entities;
+package es.jpa.hibernate.example.modelo.entities;
 
 import javax.persistence.*;
 import java.util.Set;
@@ -6,6 +6,8 @@ import java.util.Set;
 @Entity
 @Table(name = "instituto")
 public class Instituto {
+
+    private static final long serialVersionUID = 1;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

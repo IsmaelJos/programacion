@@ -12,12 +12,15 @@ public class OperacionesBdTest {
     OperacionesBd operacionesBd;
     String urlBd = "src/main/resources/usuarios.db";
     String MESSAGE_ERROR = "NO SE HA OBTENIDO EL RESULTADO ESPERADO";
-
     Usuario usuario;
     @BeforeEach
     public void beforeEach() {
-        operacionesBd = new OperacionesBd(urlBd);
-        usuario = new Usuario("11","pepe",20,"miciudad");
+        try {
+            usuario = new Usuario("11","pepe",20,"miciudad");
+            operacionesBd = new OperacionesBd(urlBd);
+        }catch (Exception exception) {
+            Assertions.fail(exception.getMessage());
+        }
     }
 
     @Test
@@ -55,14 +58,15 @@ public class OperacionesBdTest {
             Assertions.assertEquals(usuario, usuarioObtenido, MESSAGE_ERROR);
             operacionesBd.eliminarUsuario(usuarioObtenido);
             int numeroUsuariosFinal = operacionesBd.obtenerUsuarios().size();
-            Assertions.assertEquals(numeroUsuarios,numeroUsuariosFinal,MESSAGE_ERROR);
+            Assertions.assertEquals(numeroUsuarios, numeroUsuariosFinal, MESSAGE_ERROR);
         } catch (UsuarioException e) {
             Assertions.fail(e.getMessage());
         }
     }
+
     @Test
-    public void actualizarUsuario(){
-        String nombreUpdate = "pepe Juan";
+    public void actualizarUsuarioTest() {
+        String nombreUpdate = "Pepe Juan";
         int edadUpdate = 22;
         String ciudadUpdate = "Miami";
         try {
@@ -76,10 +80,14 @@ public class OperacionesBdTest {
             Assertions.assertEquals(usuario.getCiudad(),usuarioEncontrado.getCiudad(),MESSAGE_ERROR);
             Assertions.assertEquals(usuario.getEdad(),usuarioEncontrado.getEdad(),MESSAGE_ERROR);
             Assertions.assertEquals(usuario.getNombre(),usuarioEncontrado.getNombre(),MESSAGE_ERROR);
+
             operacionesBd.eliminarUsuario(usuarioEncontrado);
-        } catch (UsuarioException e) {
-            Assertions.fail(MESSAGE_ERROR+":"+e.getMessage());
+        }catch (Exception exception) {
+            Assertions.fail(MESSAGE_ERROR+":"+exception.getMessage());
         }
+
+
+
     }
 
 }
