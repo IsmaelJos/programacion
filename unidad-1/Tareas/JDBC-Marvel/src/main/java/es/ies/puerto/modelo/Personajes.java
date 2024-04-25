@@ -5,17 +5,15 @@ import java.util.Objects;
 public class Personajes {
     private int id;
     private String nombre;
-    private String alias;
     private String genero;
 
     public Personajes(int id) {
         this.id = id;
     }
 
-    public Personajes(int id, String nombre, String alias, String genero) {
+    public Personajes(int id, String nombre, String genero) {
         this.id = id;
         this.nombre = nombre;
-        this.alias = alias;
         this.genero = genero;
     }
 
@@ -35,14 +33,6 @@ public class Personajes {
         this.nombre = nombre;
     }
 
-    public String getAlias() {
-        return alias;
-    }
-
-    public void setAlias(String alias) {
-        this.alias = alias;
-    }
-
     public String getGenero() {
         return genero;
     }
@@ -56,7 +46,6 @@ public class Personajes {
         return "Personajes{" +
                 "id=" + id +
                 ", nombre='" + nombre + '\'' +
-                ", alias='" + alias + '\'' +
                 ", genero='" + genero + '\'' +
                 '}';
     }

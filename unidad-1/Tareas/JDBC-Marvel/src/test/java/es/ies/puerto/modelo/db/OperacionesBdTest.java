@@ -1,8 +1,8 @@
 package es.ies.puerto.modelo.db;
 
 import es.ies.puerto.exception.UsuarioException;
+import es.ies.puerto.modelo.Alias;
 import es.ies.puerto.modelo.Personajes;
-import es.ies.puerto.modelo.original.Usuario;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -14,10 +14,11 @@ public class OperacionesBdTest {
     String urlBd = "src/main/resources/personajes.db";
     String MESSAGE_ERROR = "NO SE HA OBTENIDO EL RESULTADO ESPERADO";
     Personajes personaje;
+    Alias alias;
     @BeforeEach
     public void beforeEach() {
         try {
-            personaje = new Personajes(3,"pepe","juan","Hombre");
+            personaje = new Personajes(3,"pepe","Hombre");
             operacionesBd = new OperacionesBd(urlBd);
         }catch (Exception exception) {
             Assertions.fail(exception.getMessage());
@@ -42,7 +43,6 @@ public class OperacionesBdTest {
             Assertions.assertNotNull(personaje, MESSAGE_ERROR);
             Assertions.assertNotNull(personaje.getId(), MESSAGE_ERROR);
             Assertions.assertNotNull(personaje.getNombre(), MESSAGE_ERROR);
-            Assertions.assertNotNull(personaje.getAlias(), MESSAGE_ERROR);
             Assertions.assertNotNull(personaje.getGenero(), MESSAGE_ERROR);
         } catch (UsuarioException e) {
             Assertions.fail(e.getMessage());
@@ -67,26 +67,42 @@ public class OperacionesBdTest {
 
     @Test
     public void actualizarPersonajeTest() {
-        String nombreUpdate = "Pepe Juan";
-        String aliasUpdate = "Jose Juancho";
         String generoUpdate = "Masculino";
         try {
             operacionesBd.insertarPersonaje(personaje);
-            personaje.setNombre(nombreUpdate);
-            personaje.setAlias(aliasUpdate);
             personaje.setGenero(generoUpdate);
             operacionesBd.actualizarPersonaje(personaje);
             Personajes usuarioEncontrado = operacionesBd.obtenerPersonaje(personaje);
             Assertions.assertEquals(personaje,usuarioEncontrado,MESSAGE_ERROR);
-            Assertions.assertEquals(personaje.getNombre(),usuarioEncontrado.getNombre(),MESSAGE_ERROR);
-            Assertions.assertEquals(personaje.getAlias(),usuarioEncontrado.getAlias(),MESSAGE_ERROR);
             Assertions.assertEquals(personaje.getGenero(),usuarioEncontrado.getGenero(),MESSAGE_ERROR);
 
             operacionesBd.eliminarPersonaje(usuarioEncontrado);
         }catch (Exception exception) {
             Assertions.fail(MESSAGE_ERROR+":"+exception.getMessage());
         }
-
     }
 
+    @Test
+    public void obtenerAliasAllTest() {
+        try {
+            Set<Alias> lista = operacionesBd.obtenerAlias();
+            Assertions.assertEquals(2, lista.size(), MESSAGE_ERROR);
+        } catch (UsuarioException e) {
+            Assertions.fail(e.getMessage());
+        }
+    }
+
+    @Test
+    public void obtenerAliasTest() {
+        Alias alias = new Alias(2);
+        try {
+            alias = operacionesBd.obtenerAlias(alias);
+            Assertions.assertNotNull(alias, MESSAGE_ERROR);
+            Assertions.assertNotNull(alias.getId(), MESSAGE_ERROR);
+            Assertions.assertNotNull(alias.getPersonaje_id(), MESSAGE_ERROR);
+            Assertions.assertNotNull(alias.getAlias(), MESSAGE_ERROR);
+        } catch (UsuarioException e) {
+            Assertions.fail(e.getMessage());
+        }
+    }
 }

@@ -1,8 +1,8 @@
 package es.ies.puerto.modelo.db;
 
 import es.ies.puerto.exception.UsuarioException;
+import es.ies.puerto.modelo.Alias;
 import es.ies.puerto.modelo.Personajes;
-import es.ies.puerto.modelo.original.Usuario;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -37,7 +37,7 @@ public class OperacionesBd extends Conexion{
         }
     }
 
-    private Set<Personajes> obtenerPersonaje(String query) throws UsuarioException {
+    private Set<Personajes> obtenerDePersonaje(String query) throws UsuarioException {
         Set<Personajes> lista = new HashSet<>();
         Statement statement = null;
         ResultSet rs = null;
@@ -47,9 +47,8 @@ public class OperacionesBd extends Conexion{
             while (rs.next()) {
                 int userId = rs.getInt("id");
                 String userName = rs.getString("nombre");
-                String userAlias = rs.getString("alias");
                 String userCity = rs.getString("genero");
-                Personajes personaje = new Personajes(userId, userName, userAlias, userCity);
+                Personajes personaje = new Personajes(userId, userName, userCity);
                 lista.add(personaje);
             }
         } catch (SQLException exception) {
@@ -72,14 +71,14 @@ public class OperacionesBd extends Conexion{
         return lista;
     }
     public Set<Personajes> obtenerPersonajes() throws UsuarioException {
-        String query = "select p.id, p.nombre, p.alias, p.genero from Personajes as p";
-        return obtenerPersonaje(query);
+        String query = "select p.id, p.nombre, p.genero from Personajes as p";
+        return obtenerDePersonaje(query);
     }
 
     public Personajes obtenerPersonaje(Personajes personajes) throws UsuarioException {
-        String query = "select p.id, p.nombre, p.alias, p.genero from Personajes as p" +
-                " where p.id='"+personajes.getId()+"'";
-        Set<Personajes> lista = obtenerPersonaje(query);
+        String query = "select p.id, p.nombre, p.genero from Personajes as p" +
+                " where p.nombre='"+personajes.getNombre()+"'";
+        Set<Personajes> lista = obtenerDePersonaje(query);
         if(lista.isEmpty()) {
             return null;
         }
@@ -87,17 +86,15 @@ public class OperacionesBd extends Conexion{
     }
 
     public void insertarPersonaje(Personajes personaje) throws UsuarioException {
-        String query = "INSERT INTO Personajes as p (nombre, alias, genero)" +
-                " VALUES ('"+personaje.getNombre()+"',"
-                + "'"+personaje.getAlias()+"'," +
+        String query = "INSERT INTO Personajes as p (nombre, genero)" +
+                " VALUES ('"+personaje.getNombre()+"'," +
                 " '"+personaje.getGenero()+"')";
         actualizar(query);
     }
 
     public void actualizarPersonaje(Personajes personaje) throws UsuarioException{
-        String query = "update Personajes set nombre='"+personaje.getNombre()+"', " +
-                "alias='"+personaje.getAlias()+"', genero='"+personaje.getGenero()+"' " +
-                "where id='"+personaje.getId()+"'";
+        String query = "update Personajes set genero='"+personaje.getGenero()+"' " +
+                "where nombre= '"+personaje.getNombre()+"'";
         actualizar(query);
     }
 
@@ -107,5 +104,52 @@ public class OperacionesBd extends Conexion{
         actualizar(query);
     }
 
+
+     Set<Alias> obtenerDeAlias(String query) throws UsuarioException {
+        Set<Alias> lista = new HashSet<>();
+        Statement statement = null;
+        ResultSet rs = null;
+        try {
+            statement = getConexion().createStatement();
+            rs = statement.executeQuery(query);
+            while (rs.next()) {
+                int aliasId = rs.getInt("id");
+                int personajeId = rs.getInt("personaje_id");
+                String aliasAlias = rs.getString("alias");
+                Alias alias = new Alias(aliasId, personajeId, aliasAlias);
+                lista.add(alias);
+            }
+        } catch (SQLException exception) {
+            throw new UsuarioException(exception.getMessage(), exception);
+        } finally {
+            try {
+                if (rs != null && !rs.isClosed()) {
+                    rs.close();
+                }
+                if (statement != null && !statement.isClosed()) {
+                    statement.close();
+                }
+                if (!getConexion().isClosed()) {
+                    getConexion().close();
+                }
+            } catch (SQLException e) {
+                throw new UsuarioException(e.getMessage(), e);
+            }
+        }
+        return lista;
+    }
+    public Set<Alias> obtenerAlias() throws UsuarioException {
+        String query = "select a.id, a.alias, a.personaje_id from Alias as a";
+        return obtenerDeAlias(query);
+    }
+    public Alias obtenerAlias(Alias alias) throws UsuarioException {
+        String query = "select a.id, a.personaje_id, a.alias from Alias as a" +
+                " where a.alias='"+alias.getAlias()+"'";
+        Set<Alias> lista = obtenerDeAlias(query);
+        if(lista.isEmpty()) {
+            return null;
+        }
+        return lista.iterator().next();
+    }
 
 }
