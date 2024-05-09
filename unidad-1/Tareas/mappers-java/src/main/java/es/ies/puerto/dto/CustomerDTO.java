@@ -11,14 +11,14 @@ public class CustomerDTO implements Serializable {
     private String address;
     private String zipCode;
 
-    public CustomerDTO() {
-    }
+    public CustomerDTO() {}
 
     public CustomerDTO(Long id) {
         this.id = id;
     }
 
-    public CustomerDTO(Long id, String fullName, String country, String address, String zipCode) {
+    public CustomerDTO(Long id, String fullName, String country,
+                       String address, String zipCode) {
         this.id = id;
         FullName = fullName;
         this.country = country;
@@ -69,7 +69,7 @@ public class CustomerDTO implements Serializable {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (!(o instanceof CustomerDTO)) return false;
         CustomerDTO that = (CustomerDTO) o;
         return Objects.equals(id, that.id);
     }
@@ -85,6 +85,6 @@ public class CustomerDTO implements Serializable {
                 ", FullName='" + FullName + '\'' +
                 ", country='" + country + '\'' +
                 ", Address='" + address + '\'' +
-                ", zipCode='" + zipCode ;
+                ", zipCode='" + zipCode;
     }
 }

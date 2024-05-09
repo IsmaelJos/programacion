@@ -15,18 +15,10 @@ public class Customer {
     @Column(name="password")
     private String password;
 
-    public Customer() {
-    }
+    public Customer() {}
 
     public Customer(Long id) {
         this.id = id;
-    }
-
-    public Customer(Long id, String firstname, String lastname, String password) {
-        this.id = id;
-        this.firstname = firstname;
-        this.lastname = lastname;
-        this.password = password;
     }
 
     public Long getId() {
@@ -60,6 +52,4 @@ public class Customer {
     public void setPassword(String password) {
         this.password = password;
     }
-
-
 }

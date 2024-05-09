@@ -18,19 +18,21 @@ public class Address {
     @Column(name="zipcode")
     private String zipCode;
 
-    public Address() {
+    @Column(name="provincia")
+    private String provincia;
+
+    public Address() {}
+
+    public String getProvincia() {
+        return provincia;
+    }
+
+    public void setProvincia(String provincia) {
+        this.provincia = provincia;
     }
 
     public Address(Long id) {
         this.id = id;
-    }
-
-    public Address(Long id, Customer customer, String country, String address, String zipCode) {
-        this.id = id;
-        this.customer = customer;
-        this.country = country;
-        this.address = address;
-        this.zipCode = zipCode;
     }
 
     public Long getId() {
@@ -72,6 +74,4 @@ public class Address {
     public void setZipCode(String zipCode) {
         this.zipCode = zipCode;
     }
-
-
 }
