@@ -56,10 +56,11 @@ public class Equipamiento implements Serializable {
         this.personaje_id = personaje_id;
     }
 
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Equipamiento)) return false;
+        if (o == null || getClass() != o.getClass()) return false;
         Equipamiento that = (Equipamiento) o;
         return Objects.equals(id, that.id);
     }

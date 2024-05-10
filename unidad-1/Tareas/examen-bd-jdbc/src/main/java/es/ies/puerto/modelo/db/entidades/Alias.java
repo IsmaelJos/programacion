@@ -47,13 +47,13 @@ public class Alias implements Serializable {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Alias)) return false;
+        if (o == null || getClass() != o.getClass()) return false;
         Alias alias = (Alias) o;
-        return Objects.equals(id, alias.id);
+        return Objects.equals(personaje_id, alias.personaje_id);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id);
+        return Objects.hash(personaje_id);
     }
 }

@@ -1,7 +1,8 @@
 package es.ies.puerto.modelo.db.dao;
 
-import es.ies.puerto.abstractas.DaoAbstract;
 import es.ies.puerto.exception.MarvelException;
+import es.ies.puerto.modelo.db.Conexion;
+import es.ies.puerto.modelo.db.entidades.Alias;
 import es.ies.puerto.modelo.db.entidades.Poder;
 
 import java.sql.ResultSet;
@@ -11,51 +12,33 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class DaoPoder extends DaoAbstract {
+public class DaoPoder extends Conexion {
     public DaoPoder() throws MarvelException {
         super();
     }
 
-    public Set<Poder> findAllPoder() throws MarvelException {
-        String query;
-        query  = "select p.id, p.nombre from Poder as p";
-        return obtener(query);
-    }
-
-    public Poder findPoder(Poder poder) throws MarvelException {
-        String query = "select p.id, p.nombre from poder as p" +
-                " where p.id='"+poder.getId()+"'";
-        Set<Poder> lista = obtener(query);
-        if(lista.isEmpty()) {
-            return null;
-        }
-        return lista.iterator().next();
-    }
-
-    public boolean updatePoder(Poder poder) throws MarvelException {
-
-        String query = "INSERT INTO poder as p (id,nombre)" +
-                " VALUES ('"+poder.getId()+"','"
-                + poder.getNombre()+"')";
-            Poder findPoder = findPoder(poder);
-            if (findPoder!= null) {
-                query = "update poder set nombre='"+poder.getNombre()+"' " +
-                        "where id='"+poder.getId()+"'";
+    public void actualizarPoder(String query) throws MarvelException{
+        Statement statement = null;
+        try {
+            statement = getConexion().createStatement();
+            statement.executeUpdate(query);
+        } catch (SQLException exception) {
+            throw new MarvelException(exception.getMessage(), exception);
+        } finally {
+            try {
+                if (statement != null && !statement.isClosed()) {
+                    statement.close();
+                }
+                if (!getConexion().isClosed()) {
+                    getConexion().close();
+                }
+            } catch (SQLException e) {
+                throw new MarvelException(e.getMessage(), e);
             }
-
-        //Si existe actualiza
-        //Si NO existe inserta
-        actualizar(query);
-        return false;
+        }
     }
 
-    public void deletePoder(Poder poder) throws MarvelException {
-        String query = "delete FROM Poder as p" +
-                " where p.id='"+poder.getId()+"'";
-        actualizar(query);
-    }
-
-    private Set<Poder> obtener(String query) throws MarvelException {
+    private Set<Poder> obtenerDePoder(String query) throws MarvelException {
         Set<Poder> lista = new HashSet<>();
         Statement statement = null;
         ResultSet rs = null;
@@ -63,11 +46,10 @@ public class DaoPoder extends DaoAbstract {
             statement = getConexion().createStatement();
             rs = statement.executeQuery(query);
             while (rs.next()) {
-                String id = rs.getString("id");
+                String poderId = rs.getString("id");
                 String nombre = rs.getString("nombre");
-
-                Poder Poder = new Poder(id, nombre);
-                lista.add(Poder);
+                Poder poder = new Poder(poderId, nombre);
+                lista.add(poder);
             }
         } catch (SQLException exception) {
             throw new MarvelException(exception.getMessage(), exception);
@@ -88,5 +70,46 @@ public class DaoPoder extends DaoAbstract {
         }
         return lista;
     }
+
+    public Set<Poder> findAllPoder() throws MarvelException {
+        String query = "select p.id, p.nombre from Poder as p";
+        return obtenerDePoder(query);
+    }
+
+    public Poder findPoder(Poder poder) throws MarvelException {
+        String query = "select p.id, p.nombre from Poder as p where p.id='"+poder.getId()+"'";
+        Set<Poder> poderSet = obtenerDePoder(query);
+        if (poderSet.isEmpty()){
+            return null;
+        }
+        return poderSet.iterator().next();
+    }
+
+    public boolean updatePoder(Poder poder) throws MarvelException {
+
+        String query = "select p.id, p.nombre from Poder as p where p.id='"+poder.getId()+"'";
+        Set<Poder> lista = obtenerDePoder(query);
+        if (lista.isEmpty()){
+            query = "INSERT INTO Poder as p (id, nombre)" +
+                    " VALUES ('"+poder.getId()+"'," +
+                    " '"+poder.getNombre()+"')";
+            actualizarPoder(query);
+        }else {
+            query = "update Poder set nombre='"+poder.getNombre()+"' " +
+                    "where id= '"+poder.getId()+"'";
+            actualizarPoder(query);
+        }
+
+        return true;
+    }
+
+    public void deletePoder(Poder poder) throws MarvelException {
+
+        String query = "delete FROM Poder" +
+                " where id='"+poder.getId()+"'";
+        actualizarPoder(query);
+
+    }
+
 
 }

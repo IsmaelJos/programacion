@@ -1,6 +1,5 @@
 package es.ies.puerto.mapper.struct;
 
-import es.ies.puerto.dto.AddressDTO;
 import es.ies.puerto.dto.CustomerDTO;
 import es.ies.puerto.model.entity.Customer;
 import org.mapstruct.Mapper;

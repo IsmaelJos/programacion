@@ -1,7 +1,8 @@
 package es.ies.puerto.modelo.db.dao;
 
-import es.ies.puerto.abstractas.DaoAbstract;
 import es.ies.puerto.exception.MarvelException;
+import es.ies.puerto.modelo.db.Conexion;
+import es.ies.puerto.modelo.db.entidades.Equipamiento;
 import es.ies.puerto.modelo.db.entidades.Personaje;
 import es.ies.puerto.modelo.db.entidades.Personaje;
 
@@ -12,53 +13,34 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class DaoPersonaje extends DaoAbstract {
+public class DaoPersonaje  extends Conexion {
 
     public DaoPersonaje() throws MarvelException {
         super();
     }
 
-    public Set<Personaje> findAllPersonaje() throws MarvelException {
-        String query;
-        query  = "select p.id, p.nombre, p.genero from Personaje as p";
-        return obtener(query);
-    }
-
-    public Personaje findPersonaje(Personaje Personaje) throws MarvelException {
-        String query = "select p.id, p.nombre, p.genero from Personaje as p" +
-                " where p.id='"+Personaje.getId()+"'";
-        Set<Personaje> lista = obtener(query);
-        if(lista.isEmpty()) {
-            return null;
+    public void actualizarPersonaje(String query) throws MarvelException{
+        Statement statement = null;
+        try {
+            statement = getConexion().createStatement();
+            statement.executeUpdate(query);
+        } catch (SQLException exception) {
+            throw new MarvelException(exception.getMessage(), exception);
+        } finally {
+            try {
+                if (statement != null && !statement.isClosed()) {
+                    statement.close();
+                }
+                if (!getConexion().isClosed()) {
+                    getConexion().close();
+                }
+            } catch (SQLException e) {
+                throw new MarvelException(e.getMessage(), e);
+            }
         }
-        return lista.iterator().next();
     }
 
-    public boolean updatePersonaje(Personaje personaje) throws MarvelException {
-
-        String query = "INSERT INTO Personaje as p (id,nombre,genero)" +
-                " VALUES ('"+personaje.getId()+"','"
-                + personaje.getNombre()+"','"+personaje.getGenero()+"')";
-        Personaje findPersonaje = findPersonaje(personaje);
-        if (findPersonaje!= null) {
-            query = "update Personaje set nombre='"+personaje.getNombre()+"'" +
-                    ", genero= '" +personaje.getGenero()+"'" +
-                    " where id='"+personaje.getId()+"'";
-        }
-
-        //Si existe actualiza
-        //Si NO existe inserta
-        actualizar(query);
-        return false;
-    }
-
-    public void deletePersonaje(Personaje Personaje) throws MarvelException {
-        String query = "delete FROM Personaje as p" +
-                " where p.id='"+Personaje.getId()+"'";
-        actualizar(query);
-    }
-
-    private Set<Personaje> obtener(String query) throws MarvelException {
+    private Set<Personaje> obtenerDePersonaje(String query) throws MarvelException {
         Set<Personaje> lista = new HashSet<>();
         Statement statement = null;
         ResultSet rs = null;
@@ -69,9 +51,8 @@ public class DaoPersonaje extends DaoAbstract {
                 String id = rs.getString("id");
                 String nombre = rs.getString("nombre");
                 String genero = rs.getString("genero");
-
-                Personaje Personaje = new Personaje(id, nombre,genero,null, null,null);
-                lista.add(Personaje);
+                Personaje personaje = new Personaje(id, nombre, genero, null,null,null);
+                lista.add(personaje);
             }
         } catch (SQLException exception) {
             throw new MarvelException(exception.getMessage(), exception);
@@ -92,4 +73,45 @@ public class DaoPersonaje extends DaoAbstract {
         }
         return lista;
     }
+
+    public Set<Personaje> findAllPersonaje() throws MarvelException {
+        String query = "select p.id, p.nombre, p.genero from Personaje as p";
+        return obtenerDePersonaje(query);
+    }
+
+    public Personaje findPersonaje(Personaje personaje) throws MarvelException {
+        String query = "select p.id, p.nombre, p.genero from Personaje as p where id='"+personaje.getId()+"'";
+        Set<Personaje> personajeSet = obtenerDePersonaje(query);
+        if (personajeSet.isEmpty()){
+            return null;
+        }
+        return personajeSet.iterator().next();
+    }
+
+    public boolean updatePersonaje(Personaje personaje) throws MarvelException {
+        String query = "select p.id, p.nombre, p.genero from Personaje as p where id='"+personaje.getId()+"'";
+        Set<Personaje> personajeSet = obtenerDePersonaje(query);
+        if (personajeSet.isEmpty()){
+            query = "INSERT INTO Personaje as p (id, nombre, genero)" +
+                    " VALUES ('"+personaje.getId()+"'," +
+                    " '"+personaje.getNombre()+"',"+
+                    " '"+personaje.getGenero()+"')";
+            actualizarPersonaje(query);
+        }else {
+            query = "update Personaje set nombre='"+personaje.getNombre()+"', " +
+                    "genero='"+personaje.getGenero()+"' " +
+                    "where id= '"+personaje.getId()+"'";
+            actualizarPersonaje(query);
+        }
+        return true;
+    }
+
+    public void deletePersonaje(Personaje personaje) throws MarvelException {
+
+        String query = "delete FROM Personaje" +
+                " where id='"+personaje.getId()+"'";
+        actualizarPersonaje(query);
+
+    }
+
 }

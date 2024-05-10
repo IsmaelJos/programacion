@@ -1,61 +1,45 @@
 package es.ies.puerto.modelo.db.dao;
 
-import es.ies.puerto.abstractas.DaoAbstract;
 import es.ies.puerto.exception.MarvelException;
+import es.ies.puerto.modelo.db.Conexion;
+import es.ies.puerto.modelo.db.entidades.Alias;
 import es.ies.puerto.modelo.db.entidades.Equipamiento;
+import es.ies.puerto.modelo.db.entidades.Poder;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.HashSet;
 import java.util.Set;
 
-public class DaoEquipamiento extends DaoAbstract {
-
+public class DaoEquipamiento  extends Conexion {
 
     public DaoEquipamiento() throws MarvelException {
         super();
     }
 
-    public Set<Equipamiento> findAllEquipamiento() throws MarvelException {
-        String query;
-        query  = "select p.id, p.nombre, p.descripcion, p.personaje_id from Equipamiento as p";
-        return obtener(query);
-    }
-
-    public Equipamiento findEquipamiento(Equipamiento Equipamiento) throws MarvelException {
-        String query = "select p.id, p.nombre, p.descripcion, p.personaje_id from Equipamiento as p" +
-                " where p.id='"+Equipamiento.getId()+"'";
-        Set<Equipamiento> lista = obtener(query);
-        if(lista.isEmpty()) {
-            return null;
+    public void actualizarEquipamiento(String query) throws MarvelException{
+        Statement statement = null;
+        try {
+            statement = getConexion().createStatement();
+            statement.executeUpdate(query);
+        } catch (SQLException exception) {
+            throw new MarvelException(exception.getMessage(), exception);
+        } finally {
+            try {
+                if (statement != null && !statement.isClosed()) {
+                    statement.close();
+                }
+                if (!getConexion().isClosed()) {
+                    getConexion().close();
+                }
+            } catch (SQLException e) {
+                throw new MarvelException(e.getMessage(), e);
+            }
         }
-        return lista.iterator().next();
     }
 
-    public boolean updateEquipamiento(Equipamiento Equipamiento) throws MarvelException {
-
-        String query = "INSERT INTO Equipamiento as p (id,nombre)" +
-                " VALUES ('"+Equipamiento.getId()+"','"
-                + Equipamiento.getNombre()+"')";
-        Equipamiento findEquipamiento = findEquipamiento(Equipamiento);
-        if (findEquipamiento!= null) {
-            query = "update Equipamiento set nombre='"+Equipamiento.getNombre()+"' " +
-                    "where id='"+Equipamiento.getId()+"'";
-        }
-
-        //Si existe actualiza
-        //Si NO existe inserta
-        actualizar(query);
-        return false;
-    }
-
-    public void deleteEquipamiento(Equipamiento Equipamiento) throws MarvelException {
-        String query = "delete FROM Equipamiento as p" +
-                " where p.id='"+Equipamiento.getId()+"'";
-        actualizar(query);
-    }
-
-    private Set<Equipamiento> obtener(String query) throws MarvelException {
+    private Set<Equipamiento> obtenerDeEquipamiento(String query) throws MarvelException {
         Set<Equipamiento> lista = new HashSet<>();
         Statement statement = null;
         ResultSet rs = null;
@@ -66,10 +50,9 @@ public class DaoEquipamiento extends DaoAbstract {
                 String id = rs.getString("id");
                 String nombre = rs.getString("nombre");
                 String descripcion = rs.getString("descripcion");
-                String idPersonaje = rs.getString("personaje_id");
-
-                Equipamiento Equipamiento = new Equipamiento(id, nombre,descripcion,idPersonaje);
-                lista.add(Equipamiento);
+                String personaje_id = rs.getString("personaje_id");
+                Equipamiento equipamiento = new Equipamiento(id, nombre, descripcion, personaje_id);
+                lista.add(equipamiento);
             }
         } catch (SQLException exception) {
             throw new MarvelException(exception.getMessage(), exception);
@@ -90,4 +73,47 @@ public class DaoEquipamiento extends DaoAbstract {
         }
         return lista;
     }
+
+    public Set<Equipamiento> findAllEquipamiento() throws MarvelException {
+        String query = "select e.id, e.nombre, e.descripcion, e.personaje_id from Equipamiento as e";
+        return obtenerDeEquipamiento(query);
+    }
+
+    public Equipamiento findEquipamiento(Equipamiento equipamiento) throws MarvelException {
+        String query = "select e.id, e.nombre, e.descripcion, e.personaje_id from Equipamiento as e where id='"+equipamiento.getId()+"'";
+        Set<Equipamiento> equipamientoSet = obtenerDeEquipamiento(query);
+        if (equipamientoSet.isEmpty()){
+            return null;
+        }
+        return equipamientoSet.iterator().next();
+    }
+
+    public boolean updateEquipamiento(Equipamiento equipamiento) throws MarvelException {
+        String query = "select e.id, e.nombre, e.descripcion, e.personaje_id from Equipamiento as e where id='"+equipamiento.getId()+"'";
+        Set<Equipamiento> equipamientoSet = obtenerDeEquipamiento(query);
+        if (equipamientoSet.isEmpty()){
+            query = "INSERT INTO Equipamiento as e (id, nombre, descripcion, personaje_id)" +
+                    " VALUES ('"+equipamiento.getId()+"'," +
+                    " '"+equipamiento.getNombre()+"',"+
+                    " '"+equipamiento.getDescripcion()+"',"+
+                    " '"+equipamiento.getPersonaje_id()+"')";
+            actualizarEquipamiento(query);
+        }else {
+            query = "update Equipamiento set nombre='"+equipamiento.getNombre()+"', " +
+                    "descripcion='"+equipamiento.getDescripcion()+"', " +
+                    "personaje_id='"+equipamiento.getPersonaje_id()+"' " +
+                    "where id= '"+equipamiento.getId()+"'";
+            actualizarEquipamiento(query);
+        }
+
+        return true;
+    }
+
+    public void deleteEquipamiento(Equipamiento equipamiento) throws MarvelException {
+        String query = "delete FROM Equipamiento" +
+                " where id='"+equipamiento.getId()+"'";
+        actualizarEquipamiento(query);
+    }
+
+
 }

@@ -20,6 +20,7 @@ public class Personaje implements Serializable {
         this.id = id;
     }
 
+
     public Personaje(String id, String nombre, String genero, Alias alias, Set<Equipamiento> equipamientos, Set<Poder> poderes) {
         this.id = id;
         this.nombre = nombre;
@@ -80,7 +81,7 @@ public class Personaje implements Serializable {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Personaje)) return false;
+        if (o == null || getClass() != o.getClass()) return false;
         Personaje personaje = (Personaje) o;
         return Objects.equals(id, personaje.id);
     }

@@ -82,6 +82,7 @@ public class DaoPersonajeTest {
         }catch (Exception e) {
             Assertions.fail(e.getMessage());
         }
-
     }
+
+    //Genera test para relacionar los personajes con alias, poderes y equipamiento
 }
