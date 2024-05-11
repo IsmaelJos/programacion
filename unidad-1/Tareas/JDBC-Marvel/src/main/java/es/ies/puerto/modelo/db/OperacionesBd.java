@@ -151,5 +151,26 @@ public class OperacionesBd extends Conexion{
         }
         return lista.iterator().next();
     }
+    public void insertarAlias(Alias alias) throws UsuarioException {
+        String query = "select p.id, p.nombre, p.genero from Personajes as p" +
+                " where p.id='"+alias.getPersonaje_id()+"'";
+        Set<Personajes> lista = obtenerDePersonaje(query);
+        if(!lista.isEmpty()) {
+            query = "INSERT INTO Alias as a (personaje_id, alias)" +
+                    " VALUES ('"+alias.getPersonaje_id()+"'," +
+                    " '"+alias.getAlias()+"')";
+            actualizar(query);
+        }
+    }
+    public void eliminarAlias(Alias alias) throws UsuarioException{
+        String query = "delete FROM Alias as a" +
+                " where a.id='"+alias.getId()+"'";
+        actualizar(query);
+    }
 
+    public void actualizarAlias(Alias alias) throws UsuarioException{
+        String query = "update Alias set alias='"+alias.getAlias()+"' " +
+                "where id= '"+alias.getId()+"'";
+        actualizar(query);
+    }
 }

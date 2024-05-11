@@ -17,8 +17,6 @@ public class Aula implements Serializable {
     }
 
 
-
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", nullable = false)

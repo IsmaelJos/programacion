@@ -19,6 +19,7 @@ public class OperacionesBdTest {
     public void beforeEach() {
         try {
             personaje = new Personajes(3,"pepe","Hombre");
+            alias = new Alias(3,1,"Pepe");
             operacionesBd = new OperacionesBd(urlBd);
         }catch (Exception exception) {
             Assertions.fail(exception.getMessage());
@@ -103,6 +104,37 @@ public class OperacionesBdTest {
             Assertions.assertNotNull(alias.getAlias(), MESSAGE_ERROR);
         } catch (UsuarioException e) {
             Assertions.fail(e.getMessage());
+        }
+    }
+    @Test
+    public void insertarEliminarAliasTest() {
+
+        try {
+            int numeroAlias = operacionesBd.obtenerAlias().size();
+            operacionesBd.insertarAlias(alias);
+            Alias aliasObtenido = operacionesBd.obtenerAlias(alias);
+            Assertions.assertEquals(alias, aliasObtenido, MESSAGE_ERROR);
+            operacionesBd.eliminarAlias(aliasObtenido);
+            int numeroAliasFinal = operacionesBd.obtenerAlias().size();
+            Assertions.assertEquals(numeroAlias, numeroAliasFinal, MESSAGE_ERROR);
+        } catch (UsuarioException e) {
+            Assertions.fail(e.getMessage());
+        }
+    }
+    @Test
+    public void actualizarAliasTest() {
+        String aliasUpdate = "Juan";
+        try {
+            operacionesBd.insertarAlias(alias);
+            alias.setAlias(aliasUpdate);
+            operacionesBd.actualizarAlias(alias);
+            Alias aliasEncontrado = operacionesBd.obtenerAlias(alias);
+            Assertions.assertEquals(alias,aliasEncontrado,MESSAGE_ERROR);
+            Assertions.assertEquals(alias.getAlias(),aliasEncontrado.getAlias(),MESSAGE_ERROR);
+
+            operacionesBd.eliminarAlias(aliasEncontrado);
+        }catch (Exception exception) {
+            Assertions.fail(MESSAGE_ERROR+":"+exception.getMessage());
         }
     }
 }
