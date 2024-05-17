@@ -1,10 +1,19 @@
 package es.ies.puerto.models;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
 public class Song {
     private String id;
     private String name;
 
     private String duration;
+
+    public Song() {
+    }
+    public Song(String id){
+        this.id = id;
+    }
 
     public Song(String id, String name, String duration) {
         this.id = id;
@@ -12,8 +21,7 @@ public class Song {
         this.duration = duration;
     }
 
-    public Song() {
-    }
+
 
     public String getId() {
         return id;
@@ -38,4 +46,5 @@ public class Song {
     public void setDuration(String duration) {
         this.duration = duration;
     }
+
 }

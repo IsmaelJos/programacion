@@ -31,7 +31,7 @@
     <cxf.version>3.4.10</cxf.version>
     <spring.version>5.3.20</spring.version>
     <servlet.api.version>2.5</servlet.api.version>
-    <jakson.version>2.13.2</jakson.version>
+    <jackson.version>2.13.2</jackson.version>
   </properties>
 
   <dependencies>
@@ -118,7 +118,12 @@
     <dependency>
       <groupId>com.fasterxml.jackson.jaxrs</groupId>
       <artifactId>jackson-jaxrs-json-provider</artifactId>
-      <version>${jakson.version}</version>
+      <version>${jackson.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.fasterxml.jackson.jaxrs</groupId>
+      <artifactId>jackson-jaxrs-xml-provider</artifactId>
+      <version>${jackson.version}</version>
     </dependency>
   </dependencies>
 
@@ -247,15 +252,7 @@
         </configuration>
       </plugin>
     </plugins>
-    <pluginManagement>
-      <plugins>
-        <plugin>
-          <groupId>org.apache.tomcat.maven</groupId>
-          <artifactId>tomcat7-maven-plugin</artifactId>
-          <version>2.2</version>
-        </plugin>
-      </plugins>
-    </pluginManagement>
+
   </build>
   <reporting>
     <plugins>
@@ -266,4 +263,8 @@
       </plugin>
     </plugins>
   </reporting>
+
+
+
 </project>
+
