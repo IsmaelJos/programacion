@@ -6,9 +6,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class Song {
     private String id;
     private String name;
-
     private String duration;
-
     public Song() {
     }
     public Song(String id){
