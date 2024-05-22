@@ -105,10 +105,11 @@ public class DaoAlias extends Conexion {
         return true;
     }
 
-    public void deleteAlias(Alias alias) throws MarvelException {
+    public boolean deleteAlias(Alias alias) throws MarvelException {
         String query = "delete FROM Alias" +
                 " where id='"+alias.getId()+"'";
         actualizarAlias(query);
+        return true;
     }
 
 
