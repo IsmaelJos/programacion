@@ -106,12 +106,13 @@ public class DaoPersonaje  extends Conexion {
         return true;
     }
 
-    public void deletePersonaje(Personaje personaje) throws MarvelException {
+    public boolean deletePersonaje(Personaje personaje) throws MarvelException {
 
         String query = "delete FROM Personaje" +
                 " where id='"+personaje.getId()+"'";
         actualizarPersonaje(query);
 
+        return true;
     }
 
 }

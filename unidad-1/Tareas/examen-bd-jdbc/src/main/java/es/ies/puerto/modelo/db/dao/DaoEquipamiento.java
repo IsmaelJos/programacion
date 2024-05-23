@@ -109,10 +109,11 @@ public class DaoEquipamiento  extends Conexion {
         return true;
     }
 
-    public void deleteEquipamiento(Equipamiento equipamiento) throws MarvelException {
+    public Boolean deleteEquipamiento(Equipamiento equipamiento) throws MarvelException {
         String query = "delete FROM Equipamiento" +
                 " where id='"+equipamiento.getId()+"'";
         actualizarEquipamiento(query);
+        return true;
     }
 
 

@@ -103,12 +103,13 @@ public class DaoPoder extends Conexion {
         return true;
     }
 
-    public void deletePoder(Poder poder) throws MarvelException {
+    public boolean deletePoder(Poder poder) throws MarvelException {
 
         String query = "delete FROM Poder" +
                 " where id='"+poder.getId()+"'";
         actualizarPoder(query);
 
+        return true;
     }
 
 
