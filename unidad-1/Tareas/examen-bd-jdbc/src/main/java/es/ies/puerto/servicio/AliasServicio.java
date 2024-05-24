@@ -12,13 +12,18 @@ import java.util.Set;
 @Consumes("application/json")
 @Produces("application/json")
 public class AliasServicio {
-    private DaoAlias daoAlias;
     public void setDaoAlias(DaoAlias daoAlias) {
         this.daoAlias = daoAlias;
     }
 
+    private DaoAlias daoAlias;
+
+    public AliasServicio() throws MarvelException {
+        daoAlias = new DaoAlias();
+    }
+
     @GET
-    @Path("/alias/{id}")
+    @Path("/{id}")
     public Response getAliasById(@PathParam("id") String id) throws MarvelException {
         Alias alias = daoAlias.findAlias(new Alias(id));
         if (alias != null) {
@@ -28,14 +33,14 @@ public class AliasServicio {
         }
     }
     @GET
-    @Path("/alias")
+    @Path("/")
     public Response getAlias() throws MarvelException {
         Set<Alias> aliases = daoAlias.findAllAlias();
         return Response.ok(aliases).build();
     }
 
     @POST
-    @Path("/alias")
+    @Path("/")
     public Response addAlias(Alias alias) throws MarvelException {
         boolean resultado = daoAlias.updateAlias(alias);
         if (resultado) {
@@ -46,7 +51,7 @@ public class AliasServicio {
     }
 
     @DELETE
-    @Path("/alias/{id}")
+    @Path("/{id}")
     public Response deleteAliasById(@PathParam("id") String id) throws MarvelException {
         boolean deleted = daoAlias.deleteAlias(new Alias(id));
         if (deleted) {

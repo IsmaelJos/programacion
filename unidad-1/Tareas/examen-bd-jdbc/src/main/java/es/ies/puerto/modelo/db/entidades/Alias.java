@@ -49,11 +49,11 @@ public class Alias implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Alias alias = (Alias) o;
-        return Objects.equals(personaje_id, alias.personaje_id);
+        return Objects.equals(id, alias.id);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(personaje_id);
+        return Objects.hash(id);
     }
 }

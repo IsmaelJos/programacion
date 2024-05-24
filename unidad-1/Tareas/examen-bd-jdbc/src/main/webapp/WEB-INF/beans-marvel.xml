@@ -6,8 +6,12 @@
          http://cxf.apache.org/jaxrs http://cxf.apache.org/schemas/jaxrs.xsd">
 
     <jaxrs:server id="marvelService" address="/">
+
         <jaxrs:serviceBeans>
-            <bean id="marvelBean" class="es.ies.puerto.services.MarvelServiceTest"/>
+            <bean id="aliasServiceBean" class="es.ies.puerto.servicio.AliasServicio"/>
+            <bean id="equipamientoServiceBean" class="es.ies.puerto.servicio.EquipamientoServicio"/>
+            <bean id="personajeServiceBean" class="es.ies.puerto.servicio.PersonajeServicio"/>
+            <bean id="poderServiceBean" class="es.ies.puerto.servicio.PoderServicio"/>
         </jaxrs:serviceBeans>
 
         <jaxrs:providers>

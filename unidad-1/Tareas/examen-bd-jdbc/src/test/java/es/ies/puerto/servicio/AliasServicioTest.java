@@ -24,8 +24,13 @@ public class AliasServicioTest {
     @BeforeEach
     public void init() {
         MockitoAnnotations.initMocks(this);
-        aliasServicio = new AliasServicio();
-        aliasServicio.setDaoAlias(daoAliasMock);
+        try {
+            aliasServicio = new AliasServicio();
+            aliasServicio.setDaoAlias(daoAliasMock);
+        }catch (Exception e) {
+            Assertions.fail(e.getMessage());
+        }
+
     }
     @Test
     void getAllTest() throws MarvelException {

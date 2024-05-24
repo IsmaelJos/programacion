@@ -10,17 +10,22 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.Response;
 import java.util.Set;
 
-@Path("/equipamiento")
+@Path("/personaje")
 @Consumes("application/json")
 @Produces("application/json")
 public class PersonajeServicio {
-    private DaoPersonaje daoPersonaje;
+
     public void setDaoPersonaje(DaoPersonaje daoPersonaje) {
         this.daoPersonaje = daoPersonaje;
     }
+    private DaoPersonaje daoPersonaje;
+
+    public PersonajeServicio() throws MarvelException {
+         daoPersonaje = new DaoPersonaje();
+    }
 
     @GET
-    @Path("/equipamiento/{id}")
+    @Path("/{id}")
     public Response getPersonajeById(@PathParam("id") String id) throws MarvelException {
         Personaje personaje = daoPersonaje.findPersonaje(new Personaje(id));
         if (personaje != null) {
@@ -30,14 +35,14 @@ public class PersonajeServicio {
         }
     }
     @GET
-    @Path("/equipamiento")
+    @Path("/")
     public Response getPersonaje() throws MarvelException {
         Set<Personaje> personaje = daoPersonaje.findAllPersonaje();
         return Response.ok(personaje).build();
     }
 
     @POST
-    @Path("/equipamiento")
+    @Path("/")
     public Response addPersonaje(Personaje personaje) throws MarvelException {
         boolean resultado = daoPersonaje.updatePersonaje(personaje);
         if (resultado) {
@@ -48,7 +53,7 @@ public class PersonajeServicio {
     }
 
     @DELETE
-    @Path("/equipamiento/{id}")
+    @Path("/{id}")
     public Response deletePersonajeById(@PathParam("id") String id) throws MarvelException {
         boolean deleted = daoPersonaje.deletePersonaje(new Personaje(id));
         if (deleted) {

@@ -80,7 +80,7 @@ public class DaoAlias extends Conexion {
     }
 
     public Alias findAlias(Alias alias) throws MarvelException {
-        String query = "select a.id, a.alias, a.personaje_id from Alias as a where a.id='"+alias.getPersonaje_id()+"'";
+        String query = "select a.id, a.alias, a.personaje_id from Alias as a where a.id='"+alias.getId()+"'";
         Set<Alias> aliasSet = obtenerDeAlias(query);
         if (aliasSet.isEmpty()){
             return null;
@@ -92,8 +92,9 @@ public class DaoAlias extends Conexion {
         String query = "select a.id, a.alias, a.personaje_id from Alias as a where a.id='"+alias.getId()+"'";
         Set<Alias> lista = obtenerDeAlias(query);
         if (lista.isEmpty()){
-            query = "INSERT INTO Alias as a (personaje_id, alias)" +
-                    " VALUES ('"+alias.getPersonaje_id()+"'," +
+            query = "INSERT INTO Alias as a (id, personaje_id, alias)" +
+                    " VALUES ('"+alias.getId()+"',"  +
+                    "'"+alias.getPersonaje_id()+"'," +
                     " '"+alias.getDescripcion()+"')";
             actualizarAlias(query);
         }else {

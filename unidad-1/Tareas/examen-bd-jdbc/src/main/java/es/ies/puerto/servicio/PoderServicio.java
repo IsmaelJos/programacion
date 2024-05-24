@@ -10,17 +10,22 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.Response;
 import java.util.Set;
 
-@Path("/alias")
+@Path("/poder")
 @Consumes("application/json")
 @Produces("application/json")
 public class PoderServicio {
-    private DaoPoder daoPoder;
+
     public void setDaoPoder(DaoPoder daoPoder) {
         this.daoPoder = daoPoder;
     }
+    private DaoPoder daoPoder;
+
+    public PoderServicio() throws MarvelException{
+        daoPoder = new DaoPoder();
+    }
 
     @GET
-    @Path("/poder/{id}")
+    @Path("/{id}")
     public Response getPoderById(@PathParam("id") String id) throws MarvelException {
         Poder poder = daoPoder.findPoder(new Poder(id));
         if (poder != null) {
@@ -30,14 +35,14 @@ public class PoderServicio {
         }
     }
     @GET
-    @Path("/poder")
+    @Path("/")
     public Response getPoder() throws MarvelException {
         Set<Poder> poderes = daoPoder.findAllPoder();
         return Response.ok(poderes).build();
     }
 
     @POST
-    @Path("/poder")
+    @Path("/")
     public Response addPoder(Poder poder) throws MarvelException {
         boolean resultado = daoPoder.updatePoder(poder);
         if (resultado) {
@@ -48,7 +53,7 @@ public class PoderServicio {
     }
 
     @DELETE
-    @Path("/poder/{id}")
+    @Path("/{id}")
     public Response deletePoderById(@PathParam("id") String id) throws MarvelException {
         boolean deleted = daoPoder.deletePoder(new Poder(id));
         if (deleted) {

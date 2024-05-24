@@ -9,6 +9,7 @@ public class DaoAliasTest {
     static DaoAlias daoAlias;
     final String idAlias="idAlias";
     final String nombreAlias="nombreAlias";
+    final String idPersonaje="idPersonaje";
     final String descripcionAliasUpdate="nombreAliasUpdate";
     Alias Alias;
 
@@ -24,7 +25,7 @@ public class DaoAliasTest {
     @BeforeEach
     public void beforeEach() {
         try {
-            Alias = new Alias(idAlias,nombreAlias,"1");
+            Alias = new Alias(idAlias,nombreAlias,idPersonaje);
             daoAlias.updateAlias(Alias);
         }catch (Exception e) {
             Assertions.fail(e.getMessage());

@@ -23,8 +23,12 @@ public class EquipamientoServicioTest {
     @BeforeEach
     public void init() {
         MockitoAnnotations.initMocks(this);
-        equipamientoServicio = new EquipamientoServicio();
-        equipamientoServicio.setDaoEquipamiento(daoEquipamientoMock);
+        try {
+            equipamientoServicio = new EquipamientoServicio();
+            equipamientoServicio.setDaoEquipamiento(daoEquipamientoMock);
+        }catch (Exception e) {
+            Assertions.fail(e.getMessage());
+        }
     }
     @Test
     void getAllTest() throws MarvelException {

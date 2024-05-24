@@ -25,8 +25,12 @@ public class PoderServicioTest {
     @BeforeEach
     public void init() {
         MockitoAnnotations.initMocks(this);
-        poderServicio = new PoderServicio();
-        poderServicio.setDaoPoder(daoPoderMock);
+        try {
+            poderServicio = new PoderServicio();
+            poderServicio.setDaoPoder(daoPoderMock);
+        }catch (Exception e) {
+            Assertions.fail(e.getMessage());
+        }
     }
     @Test
     void getAllTest() throws MarvelException {

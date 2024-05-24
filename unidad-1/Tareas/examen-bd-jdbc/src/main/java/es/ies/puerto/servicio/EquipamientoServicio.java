@@ -11,17 +11,21 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.Response;
 import java.util.Set;
 
-@Path("/eqipamiento")
+@Path("/equipamiento")
 @Consumes("application/json")
 @Produces("application/json")
 public class EquipamientoServicio {
-    private DaoEquipamiento daoEquipamiento;
     public void setDaoEquipamiento(DaoEquipamiento daoEquipamiento) {
         this.daoEquipamiento = daoEquipamiento;
     }
+    private DaoEquipamiento daoEquipamiento;
+
+    public EquipamientoServicio() throws MarvelException{
+        daoEquipamiento = new DaoEquipamiento();
+    }
 
     @GET
-    @Path("/alias/{id}")
+    @Path("/{id}")
     public Response getEquipamientoById(@PathParam("id") String id) throws MarvelException {
         Equipamiento equipamiento = daoEquipamiento.findEquipamiento(new Equipamiento(id));
         if (equipamiento != null) {
@@ -31,14 +35,14 @@ public class EquipamientoServicio {
         }
     }
     @GET
-    @Path("/alias")
+    @Path("/")
     public Response getEquipamiento() throws MarvelException {
         Set<Equipamiento> equipamientos = daoEquipamiento.findAllEquipamiento();
         return Response.ok(equipamientos).build();
     }
 
     @POST
-    @Path("/alias")
+    @Path("/")
     public Response addEquipamiento(Equipamiento equipamiento) throws MarvelException {
         boolean resultado = daoEquipamiento.updateEquipamiento(equipamiento);
         if (resultado) {
@@ -49,7 +53,7 @@ public class EquipamientoServicio {
     }
 
     @DELETE
-    @Path("/alias/{id}")
+    @Path("/{id}")
     public Response deleteEquipamientoById(@PathParam("id") String id) throws MarvelException {
         boolean deleted = daoEquipamiento.deleteEquipamiento(new Equipamiento(id));
         if (deleted) {

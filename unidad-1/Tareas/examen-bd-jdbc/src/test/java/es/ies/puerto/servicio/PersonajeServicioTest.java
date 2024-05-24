@@ -25,8 +25,12 @@ public class PersonajeServicioTest {
     @BeforeEach
     public void init() {
         MockitoAnnotations.initMocks(this);
-        personajeServicio = new PersonajeServicio();
-        personajeServicio.setDaoPersonaje(daoPersonajeMock);
+        try {
+            personajeServicio = new PersonajeServicio();
+            personajeServicio.setDaoPersonaje(daoPersonajeMock);
+        }catch (Exception e) {
+            Assertions.fail(e.getMessage());
+        }
     }
     @Test
     void getAllTest() throws MarvelException {

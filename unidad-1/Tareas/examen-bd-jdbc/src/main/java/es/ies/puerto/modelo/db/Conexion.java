@@ -14,11 +14,13 @@ public class Conexion extends AppConfig {
     public Conexion() throws MarvelException {
         super();
         this.url = "jdbc:sqlite:"+getUrlBd();
+
     }
 
 
     public Connection getConexion() throws MarvelException {
         try {
+            Class.forName("org.sqlite.JDBC");
             this.con = DriverManager.getConnection(url);
         }catch (Exception exception) {
             System.out.println(exception.getMessage());
