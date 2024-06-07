@@ -1,0 +1,95 @@
+<<!DOCTYPE html>
+<html lang="es" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>FormularioHTML</title>
+  </head>
+  <body>
+    <table>
+      <tr>
+        <td><label for="dni">D.N.I.:</label></td>
+        <td><input type="number" name="dni" id="dni" step="5"></td>
+      </tr>
+      <tr>
+        <td><label for="nombre">Nombre:</label></td>
+        <td><input type="text" name="nombre" id="nombre"></td>
+      </tr>
+      <tr>
+        <td><label for="diaNac">Fecha de Nacimiento</label></td>
+        <td><select name="diaNac" id="diaNac">
+          <script>
+            for (var i=1;i<=31;i++) {
+              document.write("<option>"+i+"</option>")
+            }
+          </script>
+        </select>
+        <select id="mesNac" name="mesNac">
+            <option value="1">Enero</option>
+            <option value="2">Febrero</option>
+            <option value="3">Marzo</option>
+            <option value="4">Abril</option>
+            <option value="5">Mayo</option>
+            <option value="6">Junio</option>
+            <option value="7">Julio</option>
+            <option value="8">Agosto</option>
+            <option value="9">Septiembre</option>
+            <option value="10">Octubte</option>
+            <option value="11">Noviembre</option>
+            <option value="12">Diciembre</option>
+        </select>
+        <select id="anioNac" name="anioNac">
+          <script>
+            for(var i=1922;i<=2122;i++){
+              document.write("<option>"+i+"<option>")
+            }
+          </script>
+        </select>
+      </td>
+      </tr>
+      <tr>
+        <td><label for="fechaNac">Fecha Nacimiento:</label></td>
+        <td><input type="date" name="fechaNac" id="fechaNac"></td>
+      </tr>
+      <tr>
+        <td><label for="contracenia">Contraseña:</label></td>
+        <td><input type="password" name="contasenia" id="contracenia"></td>
+      </tr>
+      <tr>
+        <td><label for="repite">Repite Contraseña:</label></td>
+        <td><input type="password" name="repite" id="repite"></td>
+      </tr>
+      <tr>
+        <td><label>Generos Favoritos:</label></td>
+        <td>
+          <input type="checkbox" name="dramatico" id="dramatico">
+          <label for="dramatico">Dramático</label>
+          <input type="checkbox" name="humor" id="humor">
+          <label for="humor">Humor</label>
+          <input type="checkbox" name="terror" id="terror">
+          <label for="terror">Terror</label>
+          <input type="checkbox" name="musical" value="musical">
+          <label for="musical">Musical</label>
+        </td>
+      </tr>
+      <tr>
+        <td><label>Forma de Pago:</label></td>
+        <td>
+          <input type="radio" name="formapago" id="transferencia">
+          <label for="transferencia">Transferencia</label>
+          <input type="radio" name="formapago" id="metalico">
+          <label for="metalico">Metalico</label>
+          <input type="radio" name="formapago" id="tercero">
+          <label for="tercero">Tercero</label>
+        </td>
+      </tr>
+      <tr>
+        <td><label for="">Observaciones:</label></td>
+        <td><textarea name="Observaciones" id="Observaciones" rows="10" cols="80" placeholder="Teclea aqui tus sugerencias"></textarea></td>
+      </tr>
+      <tr>
+        <td><button type="submit">Enviar</button></td>
+        <td><button type="reset">Borrar Formulario</button></td>
+      </tr>
+    </table>
+  </body>
+</html>
